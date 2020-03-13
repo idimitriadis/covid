@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 def merge_data():
     whr = pd.read_csv('data/2019.csv')
@@ -11,6 +12,11 @@ def merge_data():
     df['DateRep'] = pd.to_datetime(df['DateRep'])
     # print (df.shape)
     return df
+
+def get_dates(df):
+    df = df.sort_values(by='DateRep', ascending=False)
+    dates = df['DateRep']
+    return {'first': datetime.strptime(dates.iloc[-1], '%Y-%m-%d').strftime('%d-%m-%Y'), 'last': datetime.strptime(dates.iloc[0], '%Y-%m-%d').strftime('%d-%m-%Y')}
 
 def get_total_cases(df):
     return df['NewConfCases'].sum()
