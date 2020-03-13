@@ -2,148 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2655d511-bd86-43c2-91e6-8ea81c633ee7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/style-responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/table-responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/to-do.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/zabuto_calendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/font-awesome/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/blog-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/checkbox-gray.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-06.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-07.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-08.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-09.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/friends/fr-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/instagram.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/login-bg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/lorde.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/mask.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/ny.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/port01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/port02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/port03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/port04.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/port05.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/portfolio/port06.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/product.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/product.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/profile-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/profile-02.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/radio-gray.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/ui-danro.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/ui-divya.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/ui-sam.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/ui-sherman.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/ui-zac.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/weather.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/zoom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/bind-variables.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/bootstrap-inputmask/bootstrap-inputmask.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/bootstrap-switch.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/calendar-conf-events.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/chart-master/Chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/chartjs-conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/common-scripts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/customJS.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/easy-pie-chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/fancybox/jquery.fancybox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/fancybox/jquery.fancybox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/form-component.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/fullcalendar/bootstrap-fullcalendar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/fullcalendar/fullcalendar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter-conf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter/css/jquery.gritter.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter/css/jquery.gritter0.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter/images/gritter-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter/images/gritter-long.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter/images/gritter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter/images/ie-spacer.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/gritter/js/jquery.gritter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery-1.8.3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery-easy-pie-chart/jquery.easy-pie-chart.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery-easy-pie-chart/jquery.easy-pie-chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery-ui-1.9.2.custom.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.backstretch.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.dcjqaccordion.2.7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.nicescroll.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.scrollTo.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.sparkline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.tagsinput.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/jquery.ui.touch-punch.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/morris/morris-cricket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/morris/morris-djokovic.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/morris/morris-donaghy.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/morris/morris-plain.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/morris/morris-southern.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/morris/morris-taboga.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/sparkline-chart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/tasks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/zabuto_calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/lineicons/fonts/linecons.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/lineicons/fonts/linecons.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/lineicons/fonts/linecons.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/lineicons/fonts/linecons.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/lineicons/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/lineicons/lte-ie7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/lineicons/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/COVID.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/COVID.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/COVID-19-geographic-disbtribution-worldwide-2020-03-13.xls" beforeDir="false" afterPath="$PROJECT_DIR$/data/COVID-19-geographic-disbtribution-worldwide-2020-03-13.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/COVID.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,12 +33,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
   </component>
   <component name="ProjectId" id="1Z5Mc5RdrkoTXh2Z5yTw2GCO0zO" />
   <component name="ProjectViewState">
@@ -260,8 +117,16 @@
       <updated>1584096451409</updated>
       <workItem from="1584096452744" duration="14184000" />
       <workItem from="1584113817422" duration="3284000" />
-      <workItem from="1584124584582" duration="7472000" />
+      <workItem from="1584124584582" duration="7927000" />
     </task>
+    <task id="LOCAL-00001" summary="Add main page with boilerplate graphs&#10;Add infobox with data from RESTapi&#10;Add endpoint for total dates">
+      <created>1584132666988</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584132666988</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,27 +135,39 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add main page with boilerplate graphs&#10;Add infobox with data from RESTapi&#10;Add endpoint for total dates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add main page with boilerplate graphs&#10;Add infobox with data from RESTapi&#10;Add endpoint for total dates" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1584131114129">
+    <state x="572" y="112" key="CommitChangelistDialog2" timestamp="1584132665226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584131114129" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1584131114129">
+    <state x="572" y="112" key="CommitChangelistDialog2/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584132665226" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1584133032735">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584131114129" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1584131114129">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584133032735" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1584133032735">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584131114129" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1584131114129">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584133032735" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1584133032735">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584131114129" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584133032735" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1584133032735">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584133032735" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1584125148147">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584125148147" />
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2" timestamp="1584132669075">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="254" key="Vcs.Push.Dialog.v2/1920.572.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1584132669075" />
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1584124583660">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
