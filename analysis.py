@@ -12,19 +12,21 @@ def merge_data():
     df['DateRep'] = pd.to_datetime(df['DateRep'])
     # print (df.shape)
     return df
+df = merge_data()
+print (df.columns)
 
 def get_dates(df):
     df = df.sort_values(by='DateRep', ascending=False)
     dates = df['DateRep']
     return {'first': datetime.strptime(dates.iloc[-1], '%Y-%m-%d').strftime('%d-%m-%Y'), 'last': datetime.strptime(dates.iloc[0], '%Y-%m-%d').strftime('%d-%m-%Y')}
 
-def get_total_cases(df):
+def get_total_cases(df):#
     return df['NewConfCases'].sum()
 
-def get_total_deaths(df):
+def get_total_deaths(df):#
     return df['NewDeaths'].sum()
 
-def get_total_cases_per_day(df):
+def get_total_cases_per_day(df):#
     df1 = df.groupby('DateRep')['NewConfCases'].sum().reset_index()
     return df1
 
@@ -32,11 +34,11 @@ def get_total_deaths_per_day(df):
     df1 = df.groupby('DateRep')['NewDeaths'].sum().reset_index()
     return df1
 
-def get_total_cases_per_country_per_day(df):
+def get_total_cases_per_country_per_day(df):#
     df1 = df.groupby(['DateRep','CountryExp'])['NewConfCases'].sum().reset_index()
     return df1
 
-def get_total_deaths_per_country_per_day(df):
+def get_total_deaths_per_country_per_day(df):#
     df1 = df.groupby(['DateRep', 'CountryExp'])['NewDeaths'].sum().reset_index()
     return df1
 
@@ -47,6 +49,11 @@ def get_total_cases_per_country(df):
 def get_total_deaths_per_country(df):
     df1 = df.groupby('CountryExp')['NewDeaths'].sum().reset_index()
     return df1
+
+def get_cases_per_specific_country(df,country):
+    df1 = df[df['CountryExp']==country]
+    df2 = df1.groupby(['DateRep','CountryExp'])['NewConfCases'].sum().reset_index()
+    return df2
 
 def get_total_distribution_of_cases(df):
     dfa = get_total_cases_per_country(df)

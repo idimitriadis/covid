@@ -54,6 +54,29 @@ class totalCasesDay(Resource):
 
 api.add_resource(totalCasesDay,'/totalCasesDay')
 
+class casesPerSpecificCountry(Resource):
+    def get(self,country):
+        from analysis import merge_data,get_cases_per_specific_country
+        df = merge_data()
+        df1 = get_cases_per_specific_country(df,country)
+        df1['DateRep']= df1['DateRep'].astype(str)
+        mydict = dict(zip(df1['DateRep'], df1['NewConfCases']))
+        return (mydict)
+
+api.add_resource(casesPerSpecificCountry,'/casesPerSpecificCountry/<string:country>')
+
+
+class totalDeathsDay(Resource):
+    def get(self):
+        from analysis import merge_data,get_total_deaths_per_day
+        df = merge_data()
+        df1 = get_total_deaths_per_day(df)
+        df1['DateRep']= df1['DateRep'].astype(str)
+        mydict = dict(zip(df1['DateRep'], df1['NewDeaths']))
+        return (mydict)
+
+api.add_resource(totalDeathsDay,'/totalDeathsDay')
+
 class totalDays(Resource):
     def get(self):
         from analysis import merge_data,get_dates
