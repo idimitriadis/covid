@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<script type="text/javascript" language="javascript">
+function print_stat(){
+     jQuery.ajax({
+      type: 'GET',
+      async: false ,
+      url: 'http://127.0.0.1:5000/totalCasesCountry',
+      dataType: 'json',
+      success: function (data) {
+        alert("TEST");
+        console.log(data);
+        test(data);
+      },
+      error : function(x, e) {
+          alert('server error occoured');
+          if(x.status==0){ alert('0 error');
+          }else if(x.status==404){ alert('404 error');
+          }else if(x.status==500){ alert('500 error');
+          }else if(e=='parsererror'){ alert('Error.nParsing JSON Request failed.');
+          }else if(e=='timeout'){ alert('Time out.');
+          }else { alert(x.responseText); }
+        }
+    });
+
+
+}
+ </script>
+<input type="button" onclick="print_stat()" value="test">
+<div id='morris' class='graph'></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<script src="morris-plain.js"></script>
+</body>
+</html>
