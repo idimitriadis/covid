@@ -12,7 +12,6 @@ var Script = function () {
             dataType: 'json',
             success: data => {
                 tmp = data;
-                console.log(data);
             },
             error: function (x, e) {
                 alert('server error occoured');
@@ -37,40 +36,73 @@ var Script = function () {
 
         
     var totalCasesDay = getResultFromEndpoint('/totalCasesDay');
+    var totalCasesDayGR = getResultFromEndpoint('/casesPerSpecificCountry/Greece');
+
     var datas=[];
     for (let[key,value] of Object.entries(totalCasesDay)){
-      datas.push({'Day':key,'Cases':value});}
-
-    $(function () {
-
-      Morris.Line({
-        element: 'hero-graph',
-        data: datas,
-        xkey: 'Day',
-        ykeys: ['Cases'],
-        labels: ['Cases'],
-        parseTime: false,
-        xLabelAngle: 90,
-        lineColors: ['#d32f2f']
-      });
-
-      
-    });
-
-    var totalCasesDayGR = getResultFromEndpoint('/casesPerSpecificCountry/Greece');
-    var dataGR=[];
-    for (let[key,value] of Object.entries(totalCasesDayGR)){
-      dataGR.push({'Day':key,'Cases':value});}
+      datas.push({'Day':key,'CasesGlobal':value, 'CasesGreece':totalCasesDayGR[key]});
+    }
 
     Morris.Line({
-        element: 'sentiment-graph',
-        data: dataGR,
+        element: 'cases-per-day',
+        data: datas,
         xkey: 'Day',
-        ykeys: ['Cases'],
-        labels: ['Cases'],
+        ykeys: ['CasesGlobal', 'CasesGreece'],
+        labels: ['CasesGlobal', 'CasesGreece'],
         parseTime: false,
         xLabelAngle: 90,
-        lineColors: ['#d32f2f']
+        lineColors: ['#d32f2f', '#3498dB']
+      });
+
+    var totalDeathsDay = getResultFromEndpoint('/totalDeathsDay');
+    var totalDeathsDayGR = getResultFromEndpoint('/deathsPerSpecificCountry/Greece');
+
+    var deathsPerDay=[];
+    var casesUpToNow = 0;
+    var casesUpToNowGR = 0;
+    var deathsUpToNow = 0;
+    var deathsUpToNowGR = 0;
+    for (let[key,value] of Object.entries(totalDeathsDay)){
+        if (key in totalCasesDay){
+            casesUpToNow += totalCasesDay[key];
+        }
+        if (key in totalCasesDayGR){
+            casesUpToNowGR += totalCasesDayGR[key];
+        }
+        deathsUpToNow += value;
+        if (key in totalDeathsDayGR){
+            deathsUpToNowGR += totalDeathsDayGR[key];
+        }
+
+        if (casesUpToNow === 0){
+            if (casesUpToNowGR === 0){
+                 deathsPerDay.push({'Day':key,'CasesGlobal':0, 'CasesGR':0});
+            }
+            else {
+                deathsPerDay.push({'Day':key,'CasesGlobal':0, 'CasesGR':(deathsUpToNowGR/casesUpToNowGR * 100).toFixed(2)});
+            }
+        }
+        else {
+            if (casesUpToNowGR === 0){
+                deathsPerDay.push({'Day':key,'CasesGlobal':(deathsUpToNow/casesUpToNow * 100).toFixed(2), 'CasesGR':0});
+            }
+            else {
+                deathsPerDay.push({'Day':key,'CasesGlobal':(deathsUpToNow/casesUpToNow * 100).toFixed(2), 'CasesGR':(deathsUpToNowGR/casesUpToNowGR * 100).toFixed(2)});
+            }
+
+        }
+    }
+
+    Morris.Line({
+        element: 'death-percent-daily-global',
+        data: deathsPerDay,
+        xkey: 'Day',
+        ykeys: ['CasesGlobal', 'CasesGR'],
+        labels: ['CasesGlobal', 'CasesGR'],
+        postUnits: ['%'],
+        parseTime: false,
+        xLabelAngle: 90,
+        lineColors: ['#d32f2f', '#3498dB']
       });
 
     $('.code-example').each(function (index, el) {

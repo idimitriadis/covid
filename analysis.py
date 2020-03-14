@@ -12,8 +12,7 @@ def merge_data():
     df['DateRep'] = pd.to_datetime(df['DateRep'])
     # print (df.shape)
     return df
-df = merge_data()
-print (df.columns)
+
 
 def get_dates(df):
     df = df.sort_values(by='DateRep', ascending=False)
@@ -53,6 +52,11 @@ def get_total_deaths_per_country(df):
 def get_cases_per_specific_country(df,country):
     df1 = df[df['CountryExp']==country]
     df2 = df1.groupby(['DateRep','CountryExp'])['NewConfCases'].sum().reset_index()
+    return df2
+
+def get_deaths_per_specific_country(df,country):
+    df1 = df[df['CountryExp']==country]
+    df2 = df1.groupby(['DateRep','CountryExp'])['NewDeaths'].sum().reset_index()
     return df2
 
 def get_total_distribution_of_cases(df):

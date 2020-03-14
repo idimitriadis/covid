@@ -10,7 +10,6 @@ function getResultFromEndpoint(endpoint) {
             dataType: 'json',
             success: data => {
                 tmp = data;
-                console.log(data);
             },
             error: function (x, e) {
                 alert('server error occoured');
