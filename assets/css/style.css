@@ -409,7 +409,7 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #31708e;
+    background: #8fc1e3;
     border-bottom: 1px solid #5085a5;
 }
 
@@ -2389,8 +2389,9 @@ img{
 }
 
 #icon {
-    width: 20%;
-    height: 20%;
+    width: 10%;
+    height: 10%;
+    margin-top: -2%;
 }
 
 @media (min-width: 768px) {
