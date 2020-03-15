@@ -91,6 +91,20 @@
                           <span>Ημερήσιοι Θάνατοι</span>
                       </a>
                   </li>
+
+                  <li class="sub-menu">
+                      <a href="#cases-per-capita">
+                          <i class="fa fa-desktop"></i>
+                          <span>Κρούσματα και ΑΕΠ</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="#cases-per-life-expectancy">
+                          <i class="fa fa-desktop"></i>
+                          <span>Κρούσματα και Προσδόκιμο Ζωής</span>
+                      </a>
+                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -197,14 +211,23 @@
               </div>
 
               <!-- SECOND ROW: 3rd PLOT -->
-              <div class="row mt case-charts">
-                  <div class="col-md-9">
+              <div class="row mt case-charts" id="second-row">
+                  <div class="col-md-6">
                       <h4><i class="fa fa-angle-right"></i> Κρούσματα και ακαθάριστο εθνικό προϊόν <i class="fa fa-info-circle infopop-icon"></i> </h4>
                       <div class="infopop">
                           <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το εθνικό ακαθάριστο προϊόν παγκοσμίως.</p>
                       </div>
                       <div class="panel-body">
                           <div id="cases-per-capita" class="graph"></div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <h4><i class="fa fa-angle-right"></i> Κρούσματα και προσδόκιμο ζωής <i class="fa fa-info-circle infopop-icon"></i> </h4>
+                      <div class="infopop">
+                          <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το προσδόκιμο ζωής παγκοσμίως.</p>
+                      </div>
+                      <div class="panel-body">
+                          <div id="cases-per-life-expectancy" class="graph"></div>
                       </div>
                   </div>
               </div>

@@ -107,4 +107,14 @@ class casesPerCapita(Resource):
 
 api.add_resource(casesPerCapita,'/casesPerCapita')
 
+class casesPerLifeExpectancy(Resource):
+    def get(self):
+        from analysis import merge_data, get_cases_per_life_expectancy
+        df = merge_data()
+        df1 = get_cases_per_life_expectancy(df)
+        mydict = dict(zip(df1['Healthy life expectancy'], df1['NewConfCases']))
+        return (mydict)
+
+api.add_resource(casesPerLifeExpectancy,'/casesPerLifeExpectancy')
+
 app.run(port=5000)

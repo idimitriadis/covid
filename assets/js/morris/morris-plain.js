@@ -125,6 +125,25 @@ var Script = function () {
         barColors: ['#d32f2f']
       });
 
+    var casesPerLife = getResultFromEndpoint('/casesPerLifeExpectancy');
+    var casesPerLifeData = [];
+    for (let[key,value] of Object.entries(casesPerLife)){
+        var keyVal = parseFloat(key);
+        keyVal = keyVal.toFixed(2);
+        casesPerLifeData.push({'Life':keyVal,'Cases':value});
+    }
+
+    Morris.Bar({
+        element: 'cases-per-life-expectancy',
+        data: casesPerLifeData,
+        xkey: 'Life',
+        ykeys: ['Cases'],
+        labels: ['Cases'],
+        // parseTime: false,
+        xLabelAngle: 90,
+        barColors: ['#d32f2f']
+      });
+
     $('.code-example').each(function (index, el) {
       eval($(el).text());
     });
