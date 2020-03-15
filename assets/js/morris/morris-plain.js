@@ -48,7 +48,7 @@ var Script = function () {
         data: datas,
         xkey: 'Day',
         ykeys: ['CasesGlobal', 'CasesGreece'],
-        labels: ['CasesGlobal', 'CasesGreece'],
+        labels: ['Κρούσματα Παγκοσμίως', 'Κρούσματα στην Ελλάδα'],
         parseTime: false,
         xLabelAngle: 90,
         lineColors: ['#d32f2f', '#3498dB']
@@ -98,7 +98,7 @@ var Script = function () {
         data: deathsPerDay,
         xkey: 'Day',
         ykeys: ['CasesGlobal', 'CasesGR'],
-        labels: ['CasesGlobal', 'CasesGR'],
+        labels: ['Ποσοστό Θανάτων Παγκοσμίως', 'Ποσοστό Θανάτων στην Ελλάδα'],
         postUnits: ['%'],
         parseTime: false,
         xLabelAngle: 90,
@@ -119,7 +119,7 @@ var Script = function () {
         data: casesPerCapitaData,
         xkey: 'Gdp',
         ykeys: ['Cases'],
-        labels: ['Cases'],
+        labels: ['Κρούσματα'],
         // parseTime: false,
         xLabelAngle: 90,
         barColors: ['#d32f2f']
@@ -138,7 +138,7 @@ var Script = function () {
         data: casesPerLifeData,
         xkey: 'Life',
         ykeys: ['Cases'],
-        labels: ['Cases'],
+        labels: ['Κρούσματα'],
         // parseTime: false,
         xLabelAngle: 90,
         barColors: ['#d32f2f']

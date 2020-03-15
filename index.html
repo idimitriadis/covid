@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -12,8 +12,8 @@
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <link rel="stylesheet" href="https://cdn.anychart.com/css/latest/anychart-ui.css">
 
     <!-- Custom styles for this template -->
@@ -28,300 +28,302 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
 
-  <section id="container" >
+<section id="container">
 
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT
-      *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-          <a href="/" class="logo"><img src="assets/img/icon.png" alt="Co-vid 19" id="icon"></a>
-            <!--logo end-->
-            <div class="top-menu">
-              <ul class="nav pull-right top-menu">
-                <div class="row" >υλοποιήθηκε από το <a href="https://datalab.csd.auth.gr/" class="top-menu-oswinds" target="_blank">DATALAB</a></div>
+    <!-- **********************************************************************************************************************************************************
+    TOP BAR CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--header start-->
+    <header class="header black-bg">
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        </div>
+        <!--logo start-->
+        <a href="/" class="logo"><img src="assets/img/icon.png" alt="Co-vid 19" id="icon"></a>
+        <!--logo end-->
+        <div class="top-menu">
+            <ul class="nav pull-right top-menu">
+                <div class="row">υλοποιήθηκε από το <a href="https://datalab.csd.auth.gr/" class="top-menu-oswinds"
+                                                       target="_blank">DATALAB</a></div>
                 <div class="row top-menu-social-media">
-                  <a href="https://github.com/Datalab-AUTH" target="_blank"><i class="fa fa-github pull-right"></i></a>
-                  <a href="#" target="_blank"><i class="fa fa-linkedin pull-right"></i></a>
-                  <a href="https://www.facebook.com/oswinds/" target="_blank"><i class="fa fa-facebook pull-right"></i></a>
-                  <a href="https://twitter.com/oswinds_auth" target="_blank"><i class="fa fa-twitter pull-right"></i></a>
+                    <a href="https://github.com/Datalab-AUTH" target="_blank"><i
+                            class="fa fa-github pull-right"></i></a>
+                    <a href="#" target="_blank"><i class="fa fa-linkedin pull-right"></i></a>
+                    <a href="https://www.facebook.com/oswinds/" target="_blank"><i
+                            class="fa fa-facebook pull-right"></i></a>
+                    <a href="https://twitter.com/oswinds_auth" target="_blank"><i class="fa fa-twitter pull-right"></i></a>
                 </div>
-              </ul>
-            </div>
-        </header>
-      <!--header end-->
+            </ul>
+        </div>
+    </header>
+    <!--header end-->
 
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
+    <!-- **********************************************************************************************************************************************************
+    MAIN SIDEBAR MENU
+    *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
 
-                  <li class="mt">
-                      <a href="#container">
-                          <i class="fa fa-home"></i>
-                          <span>Κεντρική Σελίδα</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                    <a href="#cases-per-day">
-                      <i class="fa fa-globe"></i>
-                      <span>Ημερήσια Κρούσματα</span>
+                <li class="mt">
+                    <a href="#container">
+                        <i class="fa fa-home"></i>
+                        <span>Κεντρική Σελίδα</span>
                     </a>
-                  </li>
+                </li>
 
-                  <li class="sub-menu">
-                      <a href="#death-percent-daily-global">
-                          <i class="fa fa-desktop"></i>
-                          <span>Ημερήσιοι Θάνατοι</span>
-                      </a>
-                  </li>
+                <li class="sub-menu">
+                    <a href="#cases-per-day">
+                        <i class="fa fa-globe"></i>
+                        <span>Ημερήσια Κρούσματα</span>
+                    </a>
+                </li>
 
-                  <li class="sub-menu">
-                      <a href="#cases-per-capita">
-                          <i class="fa fa-desktop"></i>
-                          <span>Κρούσματα και ΑΕΠ</span>
-                      </a>
-                  </li>
+                <li class="sub-menu">
+                    <a href="#death-percent-daily-global">
+                        <i class="fa fa-desktop"></i>
+                        <span>Ημερήσιοι Θάνατοι</span>
+                    </a>
+                </li>
 
-                  <li class="sub-menu">
-                      <a href="#cases-per-life-expectancy">
-                          <i class="fa fa-desktop"></i>
-                          <span>Κρούσματα και Προσδόκιμο Ζωής</span>
-                      </a>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
+                <li class="sub-menu">
+                    <a href="#cases-per-capita">
+                        <i class="fa fa-desktop"></i>
+                        <span>Κρούσματα και ΑΕΠ</span>
+                    </a>
+                </li>
 
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper site-min-height">
-              <h2><i class="fa fa-angle-right"></i> Ο Co-vid 19 ΣΗΜΕΡΑ </h2>
+                <li class="sub-menu">
+                    <a href="#cases-per-life-expectancy">
+                        <i class="fa fa-desktop"></i>
+                        <span>Κρούσματα και Προσδόκιμο Ζωής</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
 
-              <!-- FIRST ROW: INTRO / LINE CHART / TAG CLOUD / INFOBOX -->
-              <div class="row mt">
-                  <div class="col-lg-9 col-md-9 col-sm-9">
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h2><i class="fa fa-angle-right"></i> Ο Co-vid 19 ΣΗΜΕΡΑ </h2>
+
+            <!-- FIRST ROW: INTRO / LINE CHART / TAG CLOUD / INFOBOX -->
+            <div class="row mt">
+                <div class="col-lg-9 col-md-9 col-sm-9">
                     <!-- INTRO TO THE CASE -->
                     <div class="row">
-                      <p class="intro intro-cases">
-                        This first case is used to examine the Social Media presence of the "Sports Fixing" topic, understand the crowd that is engaged with the topic
-                        and determine some basic set of words and hashtags that are frequently used in such posts. The query for this case was consisted of plain words,
-                        without studying any specific event.
-                      </p>
-                      <p class="query-words">
-                          Query Words:
-        							    <span class="label label-info">match</span>
-        							    <span class="label label-info">fixing</span>
-        							    <span class="label label-info">fix</span>
-        							    <span class="label label-info">betting</span>
-        							    <span class="label label-info">bet</span>
-        							    <span class="label label-info">corruption</span>
-        							    <span class="label label-info">scam</span>
-        							    <span class="label label-info">gambling</span>
-        							    <span class="label label-info">fraud</span>
-        							    <span class="label label-info">illegal</span>
-        							    <span class="label label-info">suspicious</span>
-        							    <span class="label label-info">manipulation</span>
-        							    <span class="label label-info">integrity</span>
-                      </p>
+                        <p class="intro intro-cases">
+                            Ενημερωτική ιστοσελίδα για τη δράση του Co-vid 19 παγκοσμίως και σύγκριση με τα ελληνικά
+                            δεδομένα.
+                        </p>
+                        <p class="query-words">
+                            Λέξεις κλειδιά:
+                            <span class="label label-info">Κρούσματα</span>
+                            <span class="label label-info">Θάνατοι</span>
+                            <span class="label label-info">Υφήλιος</span>
+                            <span class="label label-info">Ελλάδα</span>
+                            <span class="label label-info">Ακαθάριστο Εθνικό Προϊόν</span>
+                            <span class="label label-info">Προσδόκιμο Ζωής</span>
+                        </p>
                     </div>
                     <!-- 1st PLOT -->
                     <div class="row mt case-charts">
-                        <h4><i class="fa fa-angle-right"></i> Κρούσματα ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i class="fa fa-info-circle infopop-icon"></i> </h4>
+                        <h4><i class="fa fa-angle-right"></i> Κρούσματα ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i
+                                class="fa fa-info-circle infopop-icon"></i></h4>
                         <div class="infopop">
                             <p>Περιγράφει τον αριθμό κρουσμάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την Ελλάδα</p>
                         </div>
 
-                      <div class="panel-body">
-                          <div id="cases-per-day" class="graph"></div>
-                      </div>
+                        <div class="panel-body">
+                            <div id="cases-per-day" class="graph"></div>
+                        </div>
                     </div>
                     <!-- 2nd PLOT -->
                     <div class="row mt case-charts">
-                      <h4><i class="fa fa-angle-right"></i> Ποσοστό θανάτων ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i class="fa fa-info-circle infopop-icon"></i> </h4>
-                      <div class="infopop">
-                          <p>Περιγράφει το ποσοστό θανάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την Ελλάδα</p>
-                      </div>
-                      <div class="panel-body">
-                        <div id="death-percent-daily-global" class="graph"></div>
-                      </div>
+                        <h4><i class="fa fa-angle-right"></i> Ποσοστό θανάτων ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i
+                                class="fa fa-info-circle infopop-icon"></i></h4>
+                        <div class="infopop">
+                            <p>Περιγράφει το ποσοστό θανάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την Ελλάδα</p>
+                        </div>
+                        <div class="panel-body">
+                            <div id="death-percent-daily-global" class="graph"></div>
+                        </div>
                     </div>
-                  </div>
+                </div>
 
-                  <div class="col-lg-3 col-md-3 col-sm-3">
-                      <!-- GENERAL INFO -->
-                      <div class="content-panel case-right">
+                <div class="col-lg-3 col-md-3 col-sm-3">
+                    <!-- GENERAL INFO -->
+                    <div class="content-panel case-right">
                         <h4><i class="fa fa-angle-right"></i> Γενικές Πληροφορίες</h4>
                         <div class="panel-body ">
-                          <div class="row panel-body-less-padding">
-                              <div class="box0 box1">
-                                  <h2>Κρούσματα στον κόσμο</h2>
-                                  <h3 id='total-cases'></h3>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="box0 box1">
+                            <div class="row panel-body-less-padding">
+                                <div class="box0 box1">
+                                    <h2>Κρούσματα στον κόσμο</h2>
+                                    <h3 id='total-cases'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
                                     <h2>Θάνατοι στον κόσμο</h2>
                                     <h3 id='total-deaths'></h3>
-                              </div>
-                          </div>
-                          <div class="row">
-                               <div class="box0 box1">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
                                     <h2>Κρούσματα στην Ελλάδα</h2>
                                     <h3 id='total-cases-gr'></h3>
                                 </div>
-                          </div>
-                          <div class="row">
+                            </div>
+                            <div class="row">
                                 <div class="box0 box1">
                                     <h2>Θάνατοι στην Ελλάδα</h2>
                                     <h3 id='total-deaths-gr'></h3>
                                 </div>
-                          </div>
-                          <div class="row">
-                              <div class="box0 box1">
-                                  <span class="fa fa-calendar-o"></span>
-                                  <h4 id='time-frame'></h4>
-                                  <p>Τα δεδομένα αφορούν το παραπάνω διάστημα</p>
-                              </div>
-                          </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <span class="fa fa-calendar-o"></span>
+                                    <h4 id='time-frame'></h4>
+                                    <p>Τα δεδομένα αφορούν το παραπάνω διάστημα</p>
+                                </div>
+                            </div>
                         </div>
-                      </div>
-                  </div>
-              </div>
+                    </div>
+                </div>
+            </div>
 
-              <!-- SECOND ROW: 3rd PLOT -->
-              <div class="row mt case-charts" id="second-row">
-                  <div class="col-md-6">
-                      <h4><i class="fa fa-angle-right"></i> Κρούσματα και ακαθάριστο εθνικό προϊόν <i class="fa fa-info-circle infopop-icon"></i> </h4>
-                      <div class="infopop">
-                          <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το εθνικό ακαθάριστο προϊόν παγκοσμίως.</p>
-                      </div>
-                      <div class="panel-body">
-                          <div id="cases-per-capita" class="graph"></div>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <h4><i class="fa fa-angle-right"></i> Κρούσματα και προσδόκιμο ζωής <i class="fa fa-info-circle infopop-icon"></i> </h4>
-                      <div class="infopop">
-                          <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το προσδόκιμο ζωής παγκοσμίως.</p>
-                      </div>
-                      <div class="panel-body">
-                          <div id="cases-per-life-expectancy" class="graph"></div>
-                      </div>
-                  </div>
-              </div>
+            <!-- SECOND ROW: 3rd PLOT -->
+            <div class="row mt case-charts" id="second-row">
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και ακαθάριστο εθνικό προϊόν <i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το εθνικό ακαθάριστο προϊόν παγκοσμίως.</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="cases-per-capita" class="graph"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και προσδόκιμο ζωής <i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το προσδόκιμο ζωής παγκοσμίως.</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="cases-per-life-expectancy" class="graph"></div>
+                    </div>
+                </div>
+            </div>
 
-              <div class="row mt case-charts">
-                <h4><i class="fa fa-angle-right"></i> Most Frequent Users &amp; Mentions / Location Map <i class="fa fa-info-circle infopop-icon"></i> </h4>
+            <div class="row mt case-charts">
+                <h4><i class="fa fa-angle-right"></i> Most Frequent Users &amp; Mentions / Location Map <i
+                        class="fa fa-info-circle infopop-icon"></i></h4>
                 <div class="infopop">
-                    <p>The bubble chart contains the most frequent users that tweeted about the event, the tagcloud contains the most frequent mentions included in the tweets and the choropleth map shows the locations that interacted with the tweet.</p>
+                    <p>The bubble chart contains the most frequent users that tweeted about the event, the tagcloud
+                        contains the most frequent mentions included in the tweets and the choropleth map shows the
+                        locations that interacted with the tweet.</p>
                 </div>
                 <!-- TABLE OF MOST FREQUENT USERS -->
                 <div class="col-md-3 col-md-offset-1">
-                  <table class="table table-hover mt">
-                    <thead>
-                      <tr>
-                          <th>#</th>
-                          <th>Word</th>
-                          <th>Frequency</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                          <td>1</td>
-                          <td>@YouTube</td>
-                          <td>159</td>
-                      </tr>
-                      <tr>
-                          <td>2</td>
-                          <td>@bet365</td>
-                          <td>134</td>
-                      </tr>
-                      <tr>
-                          <td>3</td>
-                          <td>@realDonaldTrump</td>
-                          <td>115</td>
-                      </tr>
-                      <tr>
-                          <td>4</td>
-                          <td>@NaseemNsm1</td>
-                          <td>101</td>
-                      </tr>
-                      <tr>
-                          <td>5</td>
-                          <td>@DavidVonderhaar</td>
-                          <td>89</td>
-                      </tr>
-                      <tr>
-                          <td>6</td>
-                          <td>@Treyarch</td>
-                          <td>75</td>
-                      </tr>
-                      <tr>
-                          <td>7</td>
-                          <td>@FootyAccums</td>
-                          <td>73</td>
-                      </tr>
-                      <tr>
-                          <td>8</td>
-                          <td>@ManUtd</td>
-                          <td>59</td>
-                      </tr>
-                      <tr>
-                          <td>9</td>
-                          <td>@SkyBet</td>
-                          <td>58</td>
-                      </tr>
-                      <tr>
-                          <td>10</td>
-                          <td>@FootySuperTips</td>
-                          <td>54</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- TAG CLOUD - MOST FREQUENT USERS -->
-                <div class="col-lg-8 tag-cloud">
-                  <script src="https://cdn.tagul.com/embed/8beavw8xhfjk"></script>
-                </div>
-              </div>
-              <div class="row mt case-charts">
-                  <!-- BUBBLE CHART - MENTIONS -->
-                  <div class="col-md-offset-1 col-md-8 bubble-chart">
-                    <img src="images/bubble-general.png"/>
-                  </div>
-                  <!-- TABLE OF MOST FREQUENT MENTIONS -->
-                  <div class="col-md-3">
                     <table class="table table-hover mt">
-                      <thead>
+                        <thead>
                         <tr>
                             <th>#</th>
                             <th>Word</th>
                             <th>Frequency</th>
                         </tr>
-                      </thead>
-                      <tbody>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>@YouTube</td>
+                            <td>159</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>@bet365</td>
+                            <td>134</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>@realDonaldTrump</td>
+                            <td>115</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>@NaseemNsm1</td>
+                            <td>101</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>@DavidVonderhaar</td>
+                            <td>89</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>@Treyarch</td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>@FootyAccums</td>
+                            <td>73</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>@ManUtd</td>
+                            <td>59</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>@SkyBet</td>
+                            <td>58</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>@FootySuperTips</td>
+                            <td>54</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- TAG CLOUD - MOST FREQUENT USERS -->
+                <div class="col-lg-8 tag-cloud">
+                    <script src="https://cdn.tagul.com/embed/8beavw8xhfjk"></script>
+                </div>
+            </div>
+            <div class="row mt case-charts">
+                <!-- BUBBLE CHART - MENTIONS -->
+                <div class="col-md-offset-1 col-md-8 bubble-chart">
+                    <img src="images/bubble-general.png"/>
+                </div>
+                <!-- TABLE OF MOST FREQUENT MENTIONS -->
+                <div class="col-md-3">
+                    <table class="table table-hover mt">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Word</th>
+                            <th>Frequency</th>
+                        </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>1</td>
                             <td>@IQ_Bet</td>
@@ -372,137 +374,138 @@
                             <td>@ApolloBet</td>
                             <td>277</td>
                         </tr>
-                      </tbody>
+                        </tbody>
                     </table>
-                  </div>
-              </div>  
-              <!-- FREQUENT LOCATIONS MAP -->
-              <div class="row mt case-charts">
+                </div>
+            </div>
+            <!-- FREQUENT LOCATIONS MAP -->
+            <div class="row mt case-charts">
                 <div class="map" id="map"></div>
                 <script>
-                  anychart.onDocumentReady(
-                    function() {
-                      map = anychart.map();
+                    anychart.onDocumentReady(
+                        function () {
+                            map = anychart.map();
 
-                      // insert data
-                      var dataSet = anychart.data.set([
-                        {'id': 'IN', 'value': 64},
-                        {'id': 'AU', 'value': 55},
-                        {'id': 'FR', 'value': 54},
-                        {'id': 'PH', 'value': 53},
-                        {'id': 'GB', 'value': 49},
-                        {'id': 'NG', 'value': 48},
-                        {'id': 'US', 'value': 48},
-                        {'id': 'CA', 'value': 46},
-                        {'id': 'DE', 'value': 36},
-                        {'id': 'IE', 'value': 36},
-                        {'id': 'MY', 'value': 35},
-                        {'id': 'ES', 'value': 34},
-                        {'id': 'JP', 'value': 33},
-                        {'id': 'ZA', 'value': 30},
-                        {'id': 'NZ', 'value': 25},
-                        {'id': 'PK', 'value': 25},
-                        {'id': 'SA', 'value': 23},
-                        {'id': 'IT', 'value': 21},
-                        {'id': 'BE', 'value': 21},
-                        {'id': 'GH', 'value': 20},
-                        {'id': 'CN', 'value': 18},
-                        {'id': 'AE', 'value': 17},
-                        {'id': 'ID', 'value': 15},
-                        {'id': 'CM', 'value': 15},
-                        {'id': 'TR', 'value': 14},
-                        {'id': 'AR', 'value': 13},
-                        {'id': 'FI', 'value': 12},
-                        {'id': 'PT', 'value': 12},
-                        {'id': 'KE', 'value': 12},
-                        {'id': 'QA', 'value': 9},
-                        {'id': 'PL', 'value': 9},
-                        {'id': 'BW', 'value': 9},
-                        {'id': 'SE', 'value': 8},
-                        {'id': 'BR', 'value': 7},
-                        {'id': 'PA', 'value': 7},
-                        {'id': 'KR', 'value': 7},
-                        {'id': 'NL', 'value': 6},
-                        {'id': 'HK', 'value': 6},
-                        {'id': 'CH', 'value': 6},
-                        {'id': 'ZM', 'value': 5},
-                        {'id': 'UG', 'value': 5},
-                        {'id': 'BD', 'value': 5},
-                        {'id': 'MX', 'value': 5},
-                        {'id': 'ZW', 'value': 5},
-                        {'id': 'RU', 'value': 4},
-                        {'id': 'CL', 'value': 4},
-                        {'id': 'TZ', 'value': 4},
-                        {'id': 'DK', 'value': 3},
-                        {'id': 'GR', 'value': 3},
-                        {'id': 'TH', 'value': 1},
-                        {'id': 'SK', 'value': 1},
-                        {'id': 'CO', 'value': 1}
-                      ]);
+                            // insert data
+                            var dataSet = anychart.data.set([
+                                {'id': 'IN', 'value': 64},
+                                {'id': 'AU', 'value': 55},
+                                {'id': 'FR', 'value': 54},
+                                {'id': 'PH', 'value': 53},
+                                {'id': 'GB', 'value': 49},
+                                {'id': 'NG', 'value': 48},
+                                {'id': 'US', 'value': 48},
+                                {'id': 'CA', 'value': 46},
+                                {'id': 'DE', 'value': 36},
+                                {'id': 'IE', 'value': 36},
+                                {'id': 'MY', 'value': 35},
+                                {'id': 'ES', 'value': 34},
+                                {'id': 'JP', 'value': 33},
+                                {'id': 'ZA', 'value': 30},
+                                {'id': 'NZ', 'value': 25},
+                                {'id': 'PK', 'value': 25},
+                                {'id': 'SA', 'value': 23},
+                                {'id': 'IT', 'value': 21},
+                                {'id': 'BE', 'value': 21},
+                                {'id': 'GH', 'value': 20},
+                                {'id': 'CN', 'value': 18},
+                                {'id': 'AE', 'value': 17},
+                                {'id': 'ID', 'value': 15},
+                                {'id': 'CM', 'value': 15},
+                                {'id': 'TR', 'value': 14},
+                                {'id': 'AR', 'value': 13},
+                                {'id': 'FI', 'value': 12},
+                                {'id': 'PT', 'value': 12},
+                                {'id': 'KE', 'value': 12},
+                                {'id': 'QA', 'value': 9},
+                                {'id': 'PL', 'value': 9},
+                                {'id': 'BW', 'value': 9},
+                                {'id': 'SE', 'value': 8},
+                                {'id': 'BR', 'value': 7},
+                                {'id': 'PA', 'value': 7},
+                                {'id': 'KR', 'value': 7},
+                                {'id': 'NL', 'value': 6},
+                                {'id': 'HK', 'value': 6},
+                                {'id': 'CH', 'value': 6},
+                                {'id': 'ZM', 'value': 5},
+                                {'id': 'UG', 'value': 5},
+                                {'id': 'BD', 'value': 5},
+                                {'id': 'MX', 'value': 5},
+                                {'id': 'ZW', 'value': 5},
+                                {'id': 'RU', 'value': 4},
+                                {'id': 'CL', 'value': 4},
+                                {'id': 'TZ', 'value': 4},
+                                {'id': 'DK', 'value': 3},
+                                {'id': 'GR', 'value': 3},
+                                {'id': 'TH', 'value': 1},
+                                {'id': 'SK', 'value': 1},
+                                {'id': 'CO', 'value': 1}
+                            ]);
 
-                      // create choropleth series
-                      series = map.choropleth(dataSet);
+                            // create choropleth series
+                            series = map.choropleth(dataSet);
 
-                      // set geoIdField to 'id', this field contains in geo data meta properties
-                      series.geoIdField('id');
+                            // set geoIdField to 'id', this field contains in geo data meta properties
+                            series.geoIdField('id');
 
-                      // set map color settings
-                      series.colorScale(anychart.scales.linearColor('#effbfd', '#68dff0'));
-                      series.hoverFill('#ed5565');
+                            // set map color settings
+                            series.colorScale(anychart.scales.linearColor('#effbfd', '#68dff0'));
+                            series.hoverFill('#ed5565');
 
-                      // disable countries' labels
-                      series.labels(false);
+                            // disable countries' labels
+                            series.labels(false);
 
-                      // set map title
-                      map.title().enabled(true).text('Most Frequent Locations talking about Match Fixing\n');
+                            // set map title
+                            map.title().enabled(true).text('Most Frequent Locations talking about Match Fixing\n');
 
-                      // set geo data, you can find this map in our geo maps collection
-                      // https://cdn.anychart.com/#maps-collection
-                      map.geoData(anychart.maps['world_source']);
+                            // set geo data, you can find this map in our geo maps collection
+                            // https://cdn.anychart.com/#maps-collection
+                            map.geoData(anychart.maps['world_source']);
 
-                      //set map container id (div)
-                      map.container('map');
+                            //set map container id (div)
+                            map.container('map');
 
-                      //initiate map drawing
-                      map.draw();
+                            //initiate map drawing
+                            map.draw();
 
-                      // anychart.installStyles('body{font-family:Verdana,\'Helvetica Neue\',Arial,Helvetica,Geneva,sans-serif;background-color:red;}');
-                    });
+                            // anychart.installStyles('body{font-family:Verdana,\'Helvetica Neue\',Arial,Helvetica,Geneva,sans-serif;background-color:red;}');
+                        });
                 </script>
-              </div>
-          </section><!--/wrapper -->
-      </section><!-- /MAIN CONTENT -->
+            </div>
+        </section><!--/wrapper -->
+    </section><!-- /MAIN CONTENT -->
 
-      <!--main content end-->
-      <!--footer start-->
-      <footer class="site-footer">
-          <div class="text-center">
-              © 2020 <a href="https://datalab.csd.auth.gr/" target="_blank">DATALAB</a>, ο κώδικας μπορεί να βρεθεί <a href="https://github.com/OSWINDS/FixtheFixing-Twitter-Analytics-Results" target="_blank">εδώ</a>
-              <a href="general.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
-          </div>
-      </footer>
-      <!--footer end-->
-  </section>
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+        <div class="text-center">
+            © 2020 <a href="https://datalab.csd.auth.gr/" target="_blank">DATALAB</a>, ο κώδικας μπορεί να βρεθεί <a
+                href="https://github.com/OSWINDS/FixtheFixing-Twitter-Analytics-Results" target="_blank">εδώ</a>
+            <a href="general.html#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
+        </div>
+    </footer>
+    <!--footer end-->
+</section>
 
-    <!-- js placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
-    <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
-    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="assets/js/jquery.scrollTo.min.js"></script>
+<script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 
-    <!--common script for all pages-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-    <script src="assets/js/common-scripts.js"></script>
+<!--common script for all pages-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<script src="assets/js/common-scripts.js"></script>
 
-    <!--script for this page-->
-    <script src="assets/js/morris/morris-plain.js"></script>
-    <script src="assets/js/bind-variables.js"></script>
-  </body>
+<!--script for this page-->
+<script src="assets/js/morris/morris-plain.js"></script>
+<script src="assets/js/bind-variables.js"></script>
+</body>
 </html>
