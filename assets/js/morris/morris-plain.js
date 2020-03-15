@@ -105,6 +105,26 @@ var Script = function () {
         lineColors: ['#d32f2f', '#3498dB']
       });
 
+
+    var casesPerCapita = getResultFromEndpoint('/casesPerCapita');
+    var casesPerCapitaData = [];
+    for (let[key,value] of Object.entries(casesPerCapita)){
+        var keyVal = parseFloat(key);
+        keyVal = keyVal.toFixed(2);
+        casesPerCapitaData.push({'Gdp':keyVal,'Cases':value});
+    }
+
+    Morris.Bar({
+        element: 'cases-per-capita',
+        data: casesPerCapitaData,
+        xkey: 'Gdp',
+        ykeys: ['Cases'],
+        labels: ['Cases'],
+        // parseTime: false,
+        xLabelAngle: 90,
+        barColors: ['#d32f2f']
+      });
+
     $('.code-example').each(function (index, el) {
       eval($(el).text());
     });
