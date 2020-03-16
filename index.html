@@ -137,8 +137,6 @@
                             <span class="label label-info">Θάνατοι</span>
                             <span class="label label-info">Υφήλιος</span>
                             <span class="label label-info">Ελλάδα</span>
-                            <span class="label label-info">Ακαθάριστο Εθνικό Προϊόν</span>
-                            <span class="label label-info">Προσδόκιμο Ζωής</span>
                         </p>
                     </div>
                     <!-- 1st PLOT -->
@@ -206,8 +204,76 @@
                     </div>
                 </div>
             </div>
-
-            <!-- SECOND ROW: 3rd PLOT -->
+            <!-- SECOND ROW!! -->
+            <div class="row mt case-charts" id="second-row">
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> CDF <i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>CDF GLOBAL</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="cdf-global" class="graph"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> CDF GREECE<i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>CDF GREECE</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="cdf-greece" class="graph"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- THIRD ROW!! -->
+            <div class="row mt case-charts" id="second-row">
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> ODDS <i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>ODDS GLOBAL</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="pdf-global" class="graph"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> ODDS GREECE<i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>ODDS GREECE</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="pdf-greece" class="graph"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- FOURTH ROW: 3rd PLOT -->
+            <div class="row mt case-charts" id="second-row">
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και κατά κεφαλήν εισόδημα ανά κράτος <i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το κατά κεφαλήν εισόδημα παγκοσμίως.</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="cases-per-capita" class="graph"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4><i class="fa fa-angle-right"></i> Κατά κεφαλήν εισόδημα ανά κράτος <i
+                            class="fa fa-info-circle infopop-icon"></i></h4>
+                    <div class="infopop">
+                        <p>Περιγράφει το κατά κεφαλήν εισόδημα ανά κράτος. Οι τιμές είναι σε λογαριθμική κλίμακα</p>
+                    </div>
+                    <div class="panel-body">
+                        <div id="countries_per_capita" class="graph"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- FIFTH ROW -->
             <div class="row mt case-charts" id="second-row">
                 <div class="col-md-6">
                     <h4><i class="fa fa-angle-right"></i> Κρούσματα και ακαθάριστο εθνικό προϊόν <i
@@ -216,7 +282,7 @@
                         <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το εθνικό ακαθάριστο προϊόν παγκοσμίως.</p>
                     </div>
                     <div class="panel-body">
-                        <div id="cases-per-capita" class="graph"></div>
+                        <div id="totalCasesHumanFreedom" class="graph"></div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -226,7 +292,7 @@
                         <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το προσδόκιμο ζωής παγκοσμίως.</p>
                     </div>
                     <div class="panel-body">
-                        <div id="cases-per-life-expectancy" class="graph"></div>
+                        <div id="humanfreedomCountry" class="graph"></div>
                     </div>
                 </div>
             </div>

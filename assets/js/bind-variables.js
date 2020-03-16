@@ -35,9 +35,9 @@ function getResultFromEndpoint(endpoint) {
 var totalCases = getResultFromEndpoint('/totalCases');
 var totalDeaths = getResultFromEndpoint('/totalDeaths');
 var totalCasesPerCountry = getResultFromEndpoint('/totalCasesCountry');
-var totalCasesGr = totalCasesPerCountry['Greece'];
+var totalCasesGr = totalCasesPerCountry['GREECE'];
 var totalDeathsPerCountry = getResultFromEndpoint('/totalDeathsCountry');
-var totalDeathsGr = totalDeathsPerCountry['Greece'];
+var totalDeathsGr = totalDeathsPerCountry['GREECE'];
 var totalDays = getResultFromEndpoint('/totalDays');
 
 $('#total-cases').text(totalCases);

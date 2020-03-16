@@ -34,7 +34,7 @@ var Script = function () {
     return tmp;
         }
 
-        
+
     var totalCasesDay = getResultFromEndpoint('/totalCasesDay');
     var totalCasesDayGR = getResultFromEndpoint('/casesPerSpecificCountry/Greece');
 
@@ -105,13 +105,92 @@ var Script = function () {
         lineColors: ['#d32f2f', '#3498dB']
       });
 
+    var cdfglobal = getResultFromEndpoint('/casesCDF');
+    var cdfglobaldata = [];
+    for (let[key,value] of Object.entries(cdfglobal)){
+        var keyVal = parseFloat(key);
+        keyVal = keyVal.toFixed(2);
+        cdfglobaldata.push({'Cases':keyVal,'CDF':value});
+    }
+
+    var cdfGR = getResultFromEndpoint('/casesCountryCDF/GREECE');
+    var cdfGRdata = [];
+    for (let[key,value] of Object.entries(cdfGR)){
+        var keyVal = parseFloat(key);
+        keyVal = keyVal.toFixed(2);
+        cdfGRdata.push({'Cases':keyVal,'CDF':value});
+    }
+
+    Morris.Line({
+        element: 'cdf-global',
+        data: cdfglobaldata,
+        xkey: 'Cases',
+        ykeys: ['CDF'],
+        labels: ['CDF'],
+        parseTime: false,
+        xLabelAngle: 90,
+        lineColors: ['#ffeb3b']
+      });
+
+    Morris.Line({
+        element: 'cdf-greece',
+        data: cdfGRdata,
+        xkey: 'Cases',
+        ykeys: ['CDF'],
+        labels: ['CDF'],
+        parseTime: false,
+        xLabelAngle: 90,
+        lineColors: ['#f57f17']
+      });
+
+
+    var oddsglobal = getResultFromEndpoint('/casesODDS');
+    var oddsglobaldata = [];
+    for (let[key,value] of Object.entries(oddsglobal)){
+        var keyVal = parseFloat(key);
+        keyVal = keyVal.toFixed(2);
+        oddsglobaldata.push({'Cases':keyVal,'ODDS':Math.log10(value)});
+    }
+
+    var oddsGR = getResultFromEndpoint('/casesCountryODDS/GREECE');
+
+    var oddsGRdata = [];
+    for (let[key,value] of Object.entries(oddsGR)){
+        var keyVal = parseFloat(key);
+        keyVal = keyVal.toFixed(2);
+        oddsGRdata.push({'Cases':keyVal,'ODDS':Math.log10(value)});
+    }
+
+    Morris.Line({
+        element: 'pdf-global',
+        data: oddsglobaldata,
+        xkey: 'Cases',
+        ykeys: ['ODDS'],
+        labels: ['ODDS'],
+        parseTime: false,
+        xLabelAngle: 90,
+        lineColors: ['#81c784']
+      });
+
+    Morris.Line({
+        element: 'pdf-greece',
+        data: oddsGRdata,
+        xkey: 'Cases',
+        ykeys: ['ODDS'],
+        labels: ['ODDS'],
+        parseTime: false,
+        xLabelAngle: 90,
+        lineColors: ['#2e7d32']
+      });
+
+
 
     var casesPerCapita = getResultFromEndpoint('/casesPerCapita');
     var casesPerCapitaData = [];
     for (let[key,value] of Object.entries(casesPerCapita)){
         var keyVal = parseFloat(key);
         keyVal = keyVal.toFixed(2);
-        casesPerCapitaData.push({'Gdp':keyVal,'Cases':value});
+        casesPerCapitaData.push({'Gdp':keyVal,'Cases':Math.log10(value+1),'LinearCases':value});
     }
 
     Morris.Bar({
@@ -122,30 +201,60 @@ var Script = function () {
         labels: ['Κρούσματα'],
         // parseTime: false,
         xLabelAngle: 90,
-        barColors: ['#d32f2f']
+        barColors: ['#0277bd']
       });
 
-    var casesPerLife = getResultFromEndpoint('/casesPerLifeExpectancy');
-    var casesPerLifeData = [];
-    for (let[key,value] of Object.entries(casesPerLife)){
-        var keyVal = parseFloat(key);
-        keyVal = keyVal.toFixed(2);
-        casesPerLifeData.push({'Life':keyVal,'Cases':value});
+    var capitaCountry = getResultFromEndpoint('/capitaPerCountry');
+    var capitaCountryData = [];
+    for (let[key,value] of Object.entries(capitaCountry)){
+        capitaCountryData.push({'Country':key,'Capita':value});
     }
 
     Morris.Bar({
-        element: 'cases-per-life-expectancy',
-        data: casesPerLifeData,
-        xkey: 'Life',
-        ykeys: ['Cases'],
-        labels: ['Κρούσματα'],
+        element: 'countries_per_capita',
+        data: capitaCountryData,
+        xkey: 'Country',
+        ykeys: ['Capita'],
+        labels: ['ΑΕΠ'],
         // parseTime: false,
         xLabelAngle: 90,
-        barColors: ['#d32f2f']
+        barColors: ['#00838f']
       });
 
-    $('.code-example').each(function (index, el) {
-      eval($(el).text());
-    });
+        var humanfree = getResultFromEndpoint('/human_freedom');
+        var freedom = [];
+        for (let[key,value] of Object.entries(humanfree)){
+            freedom.push({'Cases':Math.log10(value+1),'human_freedom':key});
+        }
+
+        Morris.Bar({
+        element: 'totalCasesHumanFreedom',
+        data: freedom,
+        xkey: 'human_freedom',
+        ykeys: ['Cases'],
+        labels: ['Cases'],
+        // parseTime: false,
+        xLabelAngle: 45,
+        barColors: ['#9575cd']
+      });
+
+        var humanfreeCountry = getResultFromEndpoint('/human_freedom_per_country');
+        console.log(humanfreeCountry);
+        var freedomCountry = [];
+        for (let[key,value] of Object.entries(humanfreeCountry)){
+            freedomCountry.push({'Cases':value[0],'Country':value[1],'human_freedom':key});
+        }
+
+        Morris.Bar({
+        element: 'humanfreedomCountry',
+        data: freedomCountry,
+        xkey: 'human_freedom',
+        ykeys: ['Cases','Country'],
+        labels: ['Cases','Country'],
+        // parseTime: false,
+        xLabelAngle: 45,
+        barColors: ['#9575cd','#00838f']
+      });
+
 
 }();
