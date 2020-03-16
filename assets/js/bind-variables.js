@@ -45,3 +45,45 @@ $('#total-deaths').text(totalDeaths);
 $('#total-cases-gr').text(totalCasesGr);
 $('#total-deaths-gr').text(totalDeathsGr);
 $('#time-frame').text('Από: ' + totalDays['first'] + '  Μέχρι: ' + totalDays['last']);
+
+var countryData = getResultFromEndpoint('/getCountries');
+
+var select1 = document.getElementById("selectField1");
+var select2 = document.getElementById("selectField2");
+
+// create option for all countries together
+var el = document.createElement("option");
+el.textContent = 'WORLD';
+el.value = 'WORLD';
+el.setAttribute('selected','selected');
+var el2 = el.cloneNode(true);
+select1.appendChild(el);
+select2.appendChild(el2);
+
+// for the second graph of death ratios
+var select3 = document.getElementById("selectFieldDeath1");
+var select4 = document.getElementById("selectFieldDeath2");
+var el3 = el.cloneNode(true);
+var el4 = el.cloneNode(true);
+select3.appendChild(el3);
+select4.appendChild(el4);
+
+// append other options from country list
+for (var i = 0; i < countryData.length; i++) {
+    var opt = countryData[i];
+    el = document.createElement("option");
+    el.textContent = opt;
+    el.value = opt;
+    el2 = el.cloneNode(true);
+    select1.appendChild(el);
+    select2.appendChild(el2);
+
+    // for the second graph of death ratios
+    el3 = el.cloneNode(true);
+    el4 = el.cloneNode(true);
+    select3.appendChild(el3);
+    select4.appendChild(el4);
+}
+
+
+

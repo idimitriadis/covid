@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restful import Resource, Api
 import analysis
+import json
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -8,9 +9,18 @@ api = Api(app)
 CORS(app)
 
 df = analysis.merge_data()
+
+
 @app.context_processor
 def bind_variables():
     return dict(df=df)
+
+class getCountries(Resource):
+    def get(self):
+        result = list(set(df['CountryExp'].tolist()))
+        return jsonify(result)
+
+api.add_resource(getCountries, '/getCountries')
 
 class totalCases(Resource):
     def get(self):

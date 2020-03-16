@@ -25,7 +25,6 @@
     <script src="https://cdn.anychart.com/geodata/1.2.0/custom/world_source/world_source.js"></script>
 
     <script src="assets/js/customJS.js"></script>
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -82,30 +81,30 @@
                 </li>
 
                 <li class="sub-menu">
-                    <a href="#cases-per-day">
+                    <a href="#row1">
                         <i class="fa fa-globe"></i>
                         <span>Ημερήσια Κρούσματα</span>
                     </a>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="#death-percent-daily-global">
+                    <a href="#row2">
                         <i class="fa fa-desktop"></i>
                         <span>Ημερήσιοι Θάνατοι</span>
                     </a>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="#cases-per-capita">
+                    <a href="#row3">
                         <i class="fa fa-desktop"></i>
-                        <span>Κρούσματα και ΑΕΠ</span>
+                        <span>Αθροιστικές Κατανομές</span>
                     </a>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="#cases-per-life-expectancy">
+                    <a href="#row4">
                         <i class="fa fa-desktop"></i>
-                        <span>Κρούσματα και Προσδόκιμο Ζωής</span>
+                        <span>Τάσεις επιβίωσης</span>
                     </a>
                 </li>
             </ul>
@@ -140,26 +139,86 @@
                         </p>
                     </div>
                     <!-- 1st PLOT -->
-                    <div class="row mt case-charts">
-                        <h4><i class="fa fa-angle-right"></i> Κρούσματα ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i
-                                class="fa fa-info-circle infopop-icon"></i></h4>
-                        <div class="infopop">
-                            <p>Περιγράφει τον αριθμό κρουσμάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την Ελλάδα</p>
-                        </div>
-
-                        <div class="panel-body">
-                            <div id="cases-per-day" class="graph"></div>
+                    <div class="row mt case-charts" id="row1">
+                        <div class="col-md-12">
+                            <div class="row" >
+                                <h4><i class="fa fa-angle-right"></i> Κρούσματα ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i
+                                        class="fa fa-info-circle infopop-icon"></i></h4>
+                                <div class="infopop">
+                                    <p>Περιγράφει τον αριθμό κρουσμάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την
+                                        Ελλάδα</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div style="margin: 2em 2em 2em 0" class="form-group">
+                                        <label for="selectField1"><b>Επιλογή Χώρας</b></label>
+                                        <select id="selectField1" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="margin: 2em 2em 2em 0" class="form-group">
+                                        <label for="selectField2"><b>Επιλογή Χώρας</b></label>
+                                        <select id="selectField2" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary" onclick="compareCases()">Δείξε
+                                        αποτελέσματα
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="panel-body">
+                                    <div id="cases-per-day" class="graph"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                     <!-- 2nd PLOT -->
-                    <div class="row mt case-charts">
-                        <h4><i class="fa fa-angle-right"></i> Ποσοστό θανάτων ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i
-                                class="fa fa-info-circle infopop-icon"></i></h4>
-                        <div class="infopop">
-                            <p>Περιγράφει το ποσοστό θανάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την Ελλάδα</p>
-                        </div>
-                        <div class="panel-body">
-                            <div id="death-percent-daily-global" class="graph"></div>
+                    <div class="row mt case-charts" id="row2">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <h4><i class="fa fa-angle-right"></i> Ποσοστό θανάτων ανά ημέρα. Σύγκριση κόσμου με
+                                    Ελλάδα <i class="fa fa-info-circle infopop-icon"></i></h4>
+                                <div class="infopop">
+                                    <p>Περιγράφει το ποσοστό θανάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την
+                                        Ελλάδα</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div style="margin: 2em 2em 2em 0" class="form-group">
+                                        <label for="selectFieldDeath1"><b>Επιλογή Χώρας</b></label>
+                                        <select id="selectFieldDeath1" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="margin: 2em 2em 2em 0" class="form-group">
+                                        <label for="selectFieldDeath2"><b>Επιλογή Χώρας</b></label>
+                                        <select id="selectFieldDeath2" class="form-control">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary" onclick="compareDeaths()">Δείξε
+                                        αποτελέσματα
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="panel-body">
+                                    <div id="death-ratio" class="graph"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,7 +264,7 @@
                 </div>
             </div>
             <!-- SECOND ROW!! -->
-            <div class="row mt case-charts" id="second-row">
+            <div class="row mt case-charts" id="row3">
                 <div class="col-md-6">
                     <h4><i class="fa fa-angle-right"></i> CDF <i
                             class="fa fa-info-circle infopop-icon"></i></h4>
@@ -228,7 +287,7 @@
                 </div>
             </div>
             <!-- THIRD ROW!! -->
-            <div class="row mt case-charts" id="second-row">
+            <div class="row mt case-charts" id="row4">
                 <div class="col-md-6">
                     <h4><i class="fa fa-angle-right"></i> ODDS <i
                             class="fa fa-info-circle infopop-icon"></i></h4>
@@ -573,5 +632,6 @@
 <!--script for this page-->
 <script src="assets/js/morris/morris-plain.js"></script>
 <script src="assets/js/bind-variables.js"></script>
+
 </body>
 </html>
