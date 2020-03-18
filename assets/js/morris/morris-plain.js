@@ -78,16 +78,16 @@ var Script = function () {
     for (let [key, value] of Object.entries(oddsglobal)) {
         var keyVal = parseFloat(key);
         keyVal = keyVal.toFixed(2);
-        oddsglobaldata.push({'Cases': keyVal, 'ODDS': Math.log10(value)});
+        oddsglobaldata.push({'Cases': keyVal, 'ODDS': Math.log10(value+1)});
     }
-    // console.log(oddsglobaldata);
+    console.log(oddsglobaldata);
     var oddsGR = getResultFromEndpoint('/casesCountryODDS/Greece');
 
     var oddsGRdata = [];
     for (let [key, value] of Object.entries(oddsGR)) {
         var keyVal = parseFloat(key);
         keyVal = keyVal.toFixed(2);
-        oddsGRdata.push({'Cases': keyVal, 'ODDS': Math.log10(value)});
+        oddsGRdata.push({'Cases': keyVal, 'ODDS': Math.log10(value+1)});
     }
 
     Morris.Line({
@@ -162,14 +162,14 @@ var Script = function () {
     center: [38.995368 , 21.987713],
     minZoom: 2,
     zoom: 5
-    })
+    });
 
     L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       subdomains: ['a', 'b', 'c']
-    }).addTo( map )
+    }).addTo( map );
 
-    var myURL = jQuery( 'script[src$="morris-plain.js"]' ).attr( 'src' ).replace( 'morris-plain.js', '' )
+    var myURL = jQuery( 'script[src$="morris-plain.js"]' ).attr( 'src' ).replace( 'morris-plain.js', '' );
 
     var myIcon = L.icon({
       iconUrl: myURL + '/covid.png',
@@ -177,7 +177,7 @@ var Script = function () {
       iconSize: [29, 24],
       iconAnchor: [9, 21],
       popupAnchor: [0, -14]
-    })
+    });
 
     for ( var i=0; i < markers.length; ++i )
     {
@@ -211,7 +211,7 @@ function compareCases() {
     for (let [key, value] of Object.entries(totalCasesDay1)) {
         datas.push({'Day': key, 'Cases1': Math.log(value+1), 'Cases2': Math.log(totalCasesDay2[key]+1)});
     }
-    console.log(datas);
+
     Morris.Line({
         element: 'cases-per-day',
         data: datas,
