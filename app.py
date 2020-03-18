@@ -314,4 +314,24 @@ class deaths_today_global(Resource):
 
 api.add_resource(deaths_today_global,'/deaths_today_global')
 
+class recovered_greece(Resource):
+    def get(self):
+        from analysis import get_recovered_cases_in_greece
+        return (int(get_recovered_cases_in_greece()))
+
+api.add_resource(recovered_greece,'/recovered_greece')
+
+class mapped_results(Resource):
+    def get(self):
+        from analysis import get_mapped_data
+        # mydict = dict(zip(df['CountryExp'],zip(df['NewDeaths'],df['NewConfCases'])))
+        # return jsonify(mydict)
+        df1 = get_mapped_data(df)
+        mydict={}
+        for i,r in df1.iterrows():
+            mydict.update({r['CountryExp']:[r['lat'],r['lon'],r['NewDeaths'],r['NewConfCases']]})
+        return jsonify(mydict)
+
+api.add_resource(mapped_results,'/mapped_results')
+
 app.run(port=5000)

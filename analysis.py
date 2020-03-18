@@ -2,8 +2,28 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 import numpy as np
+import requests
+import pickle
+
+def map_countries():
+    mapping = pickle.load(open('mapping','rb'))
+    countries =[]
+    lats=[]
+    lons=[]
+    for k,v in mapping.items():
+        countries.append(k)
+        lats.append(v[0])
+        lons.append(v[1])
+    df = pd.DataFrame()
+    df['CountryExp']=countries
+    df['lat']=lats
+    df['lon']=lons
+    return (df)
+    # data = pd.DataFrame.from_dict(mapping, orient='index',columns=['CountryExp', 'lat-lon'])
+    # print (data)
 
 def merge_data():
+    locs = map_countries()
     covid = pd.read_excel('data/COVID-19-geographic-disbtribution-worldwide-2020-03-13.xls')
     covid['CountryExp'] = covid['CountryExp'].apply(lambda x: x.upper())
     covid_countries = set(covid['CountryExp'].tolist())
@@ -20,14 +40,14 @@ def merge_data():
     # print (freedoms.shape)
     # print (covid.shape)
     # print (whr.shape)
-    df = pd.merge(covid,whr2019 , on="CountryExp")
+    df1 = pd.merge(covid,whr2019 , on="CountryExp")
+    df = pd.merge(locs,df1,on="CountryExp")
     # df['DateRep'] = pd.to_datetime(df['DateRep'])
     df_final = pd.merge(df,human_freedom,on="CountryExp",how='left')
     # df_final = df_final.filter(['DateRep','CountryExp','NewConfCases','NewDeaths','hf_score','Log of GDP per capita','Healthy life expectancy',
     #     'Corruption','Freedom','Positive affect','Negative_affect','Social support','Ladder','Generosity'])
     # print (df.shape)
     return df_final
-
 
 def get_dates(df):
     df = df[pd.notnull(df['DateRep'])]
@@ -290,9 +310,16 @@ def get_countries_per_capita(df):
     df1 = df.groupby('CountryExp')['Log of GDP per capita'].mean().to_frame('capita').reset_index()
     return df1
 
-df = merge_data()
-print (set(df['CountryExp'].tolist()))
+def get_recovered_cases_in_greece():
+    data = requests.get("https://covid19.mathdro.id/api/countries/Greece/recovered").json()
+    return data[0]['recovered']
 
+def get_mapped_data(df):
+    df1 = df.groupby(['CountryExp','lat','lon'])['NewDeaths','NewConfCases'].sum().reset_index()
+    return df1
+
+
+# print (merge_data())
 # print (get_countries_per_capita(df))
 # print (get_todays_cases_EU(df))
 # print (type(get_todays_cases_EU(df)))

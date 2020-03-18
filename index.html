@@ -22,15 +22,12 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
       crossorigin=""/>
-
     <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"
       integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
       crossorigin=""></script>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
       integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
       crossorigin=""></script>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -261,6 +258,12 @@
                             </div>
                             <div class="row">
                                 <div class="box0 box1">
+                                    <h2>Περιστατικά που ανάρρωσαν στην Ελλάδα</h2>
+                                    <h3 id='recovered_greece'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
                                     <h2>Κρούσματα στην Ευρώπη</h2>
                                     <h3 id='cases-EU'></h3>
                                 </div>
@@ -404,17 +407,17 @@
 
             </div>
             <!--    CASES MAP -->
-<!--             <div class="row mt case-charts">
-                <div class="map" id="routes_micro_container"></div>
-                <script>
+            <div class="row mt case-charts">
+                <div class="map" id="map"></div>
+                <!-- <script>
                     const fetchEmotionsForPlace = async () => {
                     const response = await fetch("/most_used_routes_micro/" + region);
                     const routesJson = await response.json();
                     console.log(routesJson);
                     heatmapper(region,routesJson);
                     }
-                </script>
-            </div> -->
+                </script> -->
+            </div>
         </section><!--/wrapper -->
     </section><!-- /MAIN CONTENT -->
 
@@ -450,9 +453,6 @@
 <!--script for this page-->
 <script src="assets/js/morris/morris-plain.js"></script>
 <script src="assets/js/bind-variables.js"></script>
-<script type="text/javascript" src="assets/js/myheatmap.js"></script>
-<script type="text/javascript" src="assets/js/leaflet-heat.js"></script>
-<!-- <script src="assets/js/scatter.js"></script> -->
 
 </body>
 </html>

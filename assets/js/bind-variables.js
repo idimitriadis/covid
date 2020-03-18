@@ -50,9 +50,9 @@ var casesTodayGlobal = getResultFromEndpoint('/cases_today_global');
 var deathsTodayEU = getResultFromEndpoint('/deaths_today_EU');
 var deathsTodayNonEU = getResultFromEndpoint('/deaths_today_nonEU');
 var deaths_today_global = getResultFromEndpoint('/deaths_today_global');
+var recovered_greece = getResultFromEndpoint('/recovered_greece');
 
-
-
+$('#recovered_greece').text(recovered_greece);
 $('#cases-EU').text(casesEU);
 $('#cases-Non-EU').text(casesNonEU);
 $('#deaths-EU').text(deathsEU);

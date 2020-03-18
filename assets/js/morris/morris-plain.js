@@ -151,7 +151,39 @@ var Script = function () {
         barColors: ['#03a9f4', '#ffc107']
     });
 
+    var mapped = getResultFromEndpoint('/mapped_results');
 
+    var markers = [];
+    for (let [key, value] of Object.entries(mapped)) {
+        markers.push({'Country': key, 'lat':value[0], 'lng':value[1],'Deaths':value[2],'Cases':value[3]});
+    }
+
+    var map = L.map( 'map', {
+    center: [38.995368 , 21.987713],
+    minZoom: 2,
+    zoom: 5
+    })
+
+    L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      subdomains: ['a', 'b', 'c']
+    }).addTo( map )
+
+    var myURL = jQuery( 'script[src$="morris-plain.js"]' ).attr( 'src' ).replace( 'morris-plain.js', '' )
+
+    var myIcon = L.icon({
+      iconUrl: myURL + '/covid.png',
+      iconRetinaUrl: myURL + '/covid.png',
+      iconSize: [29, 24],
+      iconAnchor: [9, 21],
+      popupAnchor: [0, -14]
+    })
+
+    for ( var i=0; i < markers.length; ++i )
+    {
+     L.marker( [markers[i].lat, markers[i].lng], {icon: myIcon} )
+      .bindPopup( "<strong> Country:</strong>"+markers[i].Country+"<br>"+"<strong>Deaths:</strong>"+markers[i].Deaths+"<br>"+"<strong>Cases:</strong>"+markers[i].Cases)
+      .addTo( map );}
 }();
 
 function compareCases() {
@@ -190,6 +222,7 @@ function compareCases() {
         xLabelAngle: 90,
         lineColors: ['#d32f2f', '#3498dB']
     });
+
 }
 
 function compareDeaths() {
@@ -275,4 +308,5 @@ function compareDeaths() {
         xLabelAngle: 90,
         lineColors: ['#d32f2f', '#3498dB']
     });
+
 }
