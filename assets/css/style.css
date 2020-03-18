@@ -416,8 +416,8 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-    background: #8fc1e3;
-    border-bottom: 1px solid #5085a5;
+    background: #1F2739;
+    border-bottom: 1px solid #4DC3FA;
 }
 
 .wrapper {
@@ -2218,7 +2218,7 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #68dff0;
+    background: #4DC3FA;
     color: #fff;
     padding: 10px 0;
 }
@@ -2396,9 +2396,8 @@ img{
 }
 
 #icon {
-    width: 10%;
-    height: 10%;
-    margin-top: -2%;
+    width: 5%;
+    height: 5%;
 }
 
 .tooltip {
