@@ -6201,3 +6201,13 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.panel-heading {
+  font-weight: bold;
+  text-align: center;
+}
+
+.panel p {
+  font-weight: bold;
+  text-align: center;
+}

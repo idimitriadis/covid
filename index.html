@@ -20,14 +20,16 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-      crossorigin=""/>
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          crossorigin=""/>
+
+
     <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"
-      integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
-      crossorigin=""></script>
+            integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+            crossorigin=""></script>
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-      crossorigin=""></script>
+            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+            crossorigin=""></script>
     <script src="https://d3js.org/d3.v4.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -78,9 +80,9 @@
             <ul class="sidebar-menu" id="nav-accordion">
 
                 <li class="mt">
-                    <a href="#container">
+                    <a href="#panel">
                         <i class="fa fa-home"></i>
-                        <span>Κεντρική Σελίδα</span>
+                        <span>Σύνοψη στοιχείων</span>
                     </a>
                 </li>
 
@@ -111,6 +113,27 @@
                         <span>Τάσεις επιβίωσης</span>
                     </a>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="#row5">
+                        <i class="fa fa-desktop"></i>
+                        <span>Διαφθορά</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="#row6">
+                        <i class="fa fa-desktop"></i>
+                        <span>Ελευθερία</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="#row7">
+                        <i class="fa fa-desktop"></i>
+                        <span>Χάρτης</span>
+                    </a>
+                </li>
             </ul>
             <!-- sidebar menu end-->
         </div>
@@ -123,16 +146,16 @@
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper site-min-height">
-            <h2><i class="fa fa-angle-right"></i> Ο Co-vid 19 ΣΗΜΕΡΑ </h2>
-
-            <!-- FIRST ROW: INTRO / LINE CHART / TAG CLOUD / INFOBOX -->
-            <div class="row mt">
+            <div class="row">
                 <div class="col-lg-9 col-md-9 col-sm-9">
-                    <!-- INTRO TO THE CASE -->
-                    <div class="row">
+                    <h2><i class="fa fa-angle-right"></i> Ο Co-vid 19 ΣΗΜΕΡΑ </h2>
+
+                    <!-- FIRST ROW: INTRO / LINE CHART / TAG CLOUD / INFOBOX -->
+                    <div class="row mt">
+                        <!-- INTRO TO THE CASE -->
                         <p class="intro intro-cases">
-                            Ενημερωτική ιστοσελίδα για τη δράση του Co-vid 19 παγκοσμίως και σύγκριση με τα ελληνικά
-                            δεδομένα.
+                            Ενημερωτική ιστοσελίδα για τη δράση του Co-vid 19 παγκοσμίως και σύγκριση με τα
+                            ελληνικά δεδομένα.
                         </p>
                         <p class="query-words">
                             Λέξεις κλειδιά:
@@ -142,15 +165,159 @@
                             <span class="label label-info">Ελλάδα</span>
                         </p>
                     </div>
+
+                    <!-- PANEL GRID -->
+                    <div class="row mt case-charts" id="panel">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">Κρούσματα (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="panel-body">
+                                            <p id="total-cases"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">Θάνατοι (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="panel-body">
+                                            <p id="total-deaths"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">Κρούσματα (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px; filter: invert(100%);"/> </div>
+                                        <div class="panel-body">
+                                            <p id="total-cases-gr"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">Θάνατοι (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px;"/> </div>
+                                        <div class="panel-body">
+                                            <p id="total-deaths-gr"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">Αναρρώσεις (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px;"/> </div>
+                                        <div class="panel-body">
+                                            <p id="recovered_greece"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">Κρούσματα (ΕΕ) <img src="assets/img/eu-white.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="panel-body">
+                                            <p id="cases-EU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">Θανάτοι (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="panel-body">
+                                            <p id="deaths-EU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">Κρούσματα (εκτός ΕΕ)</div>
+                                        <div class="panel-body">
+                                            <p id="cases-Non-EU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="panel panel-danger">
+                                        <div class="panel-heading">Θανάτοι (εκτός ΕΕ)</div>
+                                        <div class="panel-body">
+                                            <p id="deaths-Non-EU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">Kρούσματα σήμερα (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="panel-body">
+                                            <p id="casesTodayGlobal"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">Kρούσματα σήμερα (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="panel-body">
+                                            <p id="casesTodayEU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">Kρούσματα σήμερα (εκτός ΕΕ)</div>
+                                        <div class="panel-body">
+                                            <p id="casesTodayNonEU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="panel panel-warning">
+                                        <div class="panel-heading">Θανάτοι σήμερα (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="panel-body">
+                                            <p id="deathsTodayGlobal"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-warning">
+                                        <div class="panel-heading">Θανάτοι σήμερα (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="panel-body">
+                                            <p id="deathsTodayEU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-warning">
+                                        <div class="panel-heading">Θανάτοι σήμερα (εκτός ΕΕ)</div>
+                                        <div class="panel-body">
+                                            <p id="deathsTodayNonEU"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <!-- 1st PLOT -->
                     <div class="row mt case-charts" id="row1">
                         <div class="col-md-12">
-                            <div class="row" >
-                                <h4><i class="fa fa-angle-right"></i> Κρούσματα ανά ημέρα. Σύγκριση κόσμου με Ελλάδα <i
-                                        class="fa fa-info-circle infopop-icon"></i></h4>
+                            <div class="row">
+                                <h4><i class="fa fa-angle-right"></i> Κρούσματα ανά ημέρα. Σύγκριση κόσμου με
+                                    Ελλάδα <i class="fa fa-info-circle infopop-icon"></i>
+                                </h4>
                                 <div class="infopop">
-                                    <p>Περιγράφει τον αριθμό κρουσμάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την
-                                        Ελλάδα</p>
+                                    <p>Περιγράφει τον αριθμό κρουσμάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με
+                                        την Ελλάδα
+                                    </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -188,11 +355,13 @@
                     <div class="row mt case-charts" id="row2">
                         <div class="col-md-12">
                             <div class="row">
-                                <h4><i class="fa fa-angle-right"></i> Ποσοστό θανάτων ανά ημέρα. Σύγκριση κόσμου με
-                                    Ελλάδα <i class="fa fa-info-circle infopop-icon"></i></h4>
+                                <h4><i class="fa fa-angle-right"></i> Ποσοστό θανάτων ανά ημέρα. Σύγκριση κόσμου
+                                    με Ελλάδα <i class="fa fa-info-circle infopop-icon"></i>
+                                </h4>
                                 <div class="infopop">
-                                    <p>Περιγράφει το ποσοστό θανάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με την
-                                        Ελλάδα</p>
+                                    <p>Περιγράφει το ποσοστό θανάτων ανά ημέρα συγκρίνοντας όλη την υφήλιο με
+                                        την Ελλάδα
+                                    </p>
                                 </div>
                             </div>
                             <div class="row">
@@ -213,8 +382,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary" onclick="compareDeaths()">Δείξε
-                                        αποτελέσματα
+                                    <button type="button" class="btn btn-primary" onclick="compareDeaths()">
+                                        Δείξε αποτελέσματα
                                     </button>
                                 </div>
                             </div>
@@ -225,198 +394,98 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-3">
-                    <!-- GENERAL INFO -->
-                    <div class="content-panel case-right">
-                        <h4><i class="fa fa-angle-right"></i> Γενικές Πληροφορίες</h4>
-                        <div class="panel-body ">
-                            <div class="row panel-body-less-padding">
-                                <div class="box0 box1">
-                                    <h2>Κρούσματα στον κόσμο</h2>
-                                    <h3 id='total-cases'></h3>
-                                </div>
+                    <!-- 3RD CHART(S)!! -->
+                    <div class="row mt case-charts" id="row3">
+                        <div class="col-md-6">
+                            <h4>
+                                <i class="fa fa-angle-right"></i> CDF <i class="fa fa-info-circle infopop-icon"></i>
+                            </h4>
+                            <div class="infopop">
+                                <p>CDF GLOBAL</p>
                             </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Θάνατοι στον κόσμο</h2>
-                                    <h3 id='total-deaths'></h3>
-                                </div>
+                            <div class="panel-body">
+                                <div id="cdf-global" class="graph"></div>
                             </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Κρούσματα στην Ελλάδα</h2>
-                                    <h3 id='total-cases-gr'></h3>
-                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>
+                                <i class="fa fa-angle-right"></i> CDF GREECE<i class="fa fa-info-circle infopop-icon"></i>
+                            </h4>
+                            <div class="infopop">
+                                <p>CDF GREECE</p>
                             </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Θάνατοι στην Ελλάδα</h2>
-                                    <h3 id='total-deaths-gr'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Περιστατικά που ανάρρωσαν στην Ελλάδα</h2>
-                                    <h3 id='recovered_greece'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Κρούσματα στην Ευρώπη</h2>
-                                    <h3 id='cases-EU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Κρούσματα στον υπόλοιπο Κόσμο</h2>
-                                    <h3 id='cases-Non-EU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Θανάτοι στην Ευρώπη</h2>
-                                    <h3 id='deaths-EU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Θανάτοι εκτός Ευρώπη</h2>
-                                    <h3 id='deaths-Non-EU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Kρούσματα σήμερα στην ΕΕ</h2>
-                                    <h3 id='casesTodayEU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Kρούσματα σήμερα εκτός ΕΕ</h2>
-                                    <h3 id='casesTodayNonEU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Kρούσματα σήμερα παγκοσμίως</h2>
-                                    <h3 id='casesTodayGlobal'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Θανάτοι σήμερα στην ΕΕ</h2>
-                                    <h3 id='deathsTodayEU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Θανάτοι σήμερα εκτός ΕΕ</h2>
-                                    <h3 id='deathsTodayNonEU'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <h2>Θανάτοι σήμερα παγκοσμίως</h2>
-                                    <h3 id='deathsTodayGlobal'></h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="box0 box1">
-                                    <span class="fa fa-calendar-o"></span>
-                                    <h4 id='time-frame'></h4>
-                                    <p>Τα δεδομένα αφορούν το παραπάνω διάστημα</p>
-                                </div>
+                            <div class="panel-body">
+                                <div id="cdf-greece" class="graph"></div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- SECOND ROW!! -->
-            <div class="row mt case-charts" id="row3">
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> CDF <i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>CDF GLOBAL</p>
+                    <!-- THIRD ROW!! -->
+                    <div class="row mt case-charts" id="row4">
+                        <div class="col-md-6">
+                            <h4><i class="fa fa-angle-right"></i> ODDS <i
+                                    class="fa fa-info-circle infopop-icon"></i></h4>
+                            <div class="infopop">
+                                <p>ODDS GLOBAL</p>
+                            </div>
+                            <div class="panel-body">
+                                <div id="pdf-global" class="graph"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4><i class="fa fa-angle-right"></i> ODDS GREECE<i
+                                    class="fa fa-info-circle infopop-icon"></i></h4>
+                            <div class="infopop">
+                                <p>ODDS GREECE</p>
+                            </div>
+                            <div class="panel-body">
+                                <div id="pdf-greece" class="graph"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="panel-body">
-                        <div id="cdf-global" class="graph"></div>
+                    <!-- FOURTH ROW: 3rd PLOT -->
+                    <div class="row mt case-charts" id="row5">
+                        <div class="col-md-12">
+                            <h4><i class="fa fa-angle-right"></i> Κρούσματα και διαφθορά <i
+                                    class="fa fa-info-circle infopop-icon"></i></h4>
+                            <div class="infopop">
+                                <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με την αίσθηση διαφθοράς που
+                                    επικρατεί.</p>
+                            </div>
+                            <div class="panel-body">
+                                <div id="cases-per-capita" class="graph"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> CDF GREECE<i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>CDF GREECE</p>
+                    <!-- FIFTH ROW -->
+                    <div class="row mt case-charts" id="row6">
+                        <div class="col-md-12">
+                            <h4><i class="fa fa-angle-right"></i> Κρούσματα και αίσθηση ελευθερίας <i
+                                    class="fa fa-info-circle infopop-icon"></i></h4>
+                            <div class="infopop">
+                                <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με την αίσθηση ελευθερίας των πολιτών ανά
+                                    κράτος.</p>
+                            </div>
+                            <div class="panel-body">
+                                <div id="humanfreedomCountry" class="graph"></div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="panel-body">
-                        <div id="cdf-greece" class="graph"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- THIRD ROW!! -->
-            <div class="row mt case-charts" id="row4">
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> ODDS <i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>ODDS GLOBAL</p>
-                    </div>
-                    <div class="panel-body">
-                        <div id="pdf-global" class="graph"></div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> ODDS GREECE<i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>ODDS GREECE</p>
-                    </div>
-                    <div class="panel-body">
-                        <div id="pdf-greece" class="graph"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- FOURTH ROW: 3rd PLOT -->
-            <div class="row mt case-charts" id="second-row">
-                <div class="col-md-12">
-                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και διαφθορά <i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με την αίσθηση διαφθοράς που επικρατεί.</p>
-                    </div>
-                    <div class="panel-body">
-                        <div id="cases-per-capita" class="graph"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- FIFTH ROW -->
-            <div class="row mt case-charts" id="second-row">
-                <div class="col-md-12">
-                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και αίσθηση ελευεθερίας <i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με την αίσθηση ελευθερίας των πολιτών ανά κράτος.</p>
-                    </div>
-                    <div class="panel-body">
-                        <div id="humanfreedomCountry" class="graph"></div>
+                    <!--    CASES MAP -->
+                    <div class="row mt case-charts" id="row7">
+                        <div class="map" id="map"></div>
+                        <!-- <script>
+                            const fetchEmotionsForPlace = async () => {
+                            const response = await fetch("/most_used_routes_micro/" + region);
+                            const routesJson = await response.json();
+                            console.log(routesJson);
+                            heatmapper(region,routesJson);
+                            }
+                        </script> -->
                     </div>
                 </div>
 
-            </div>
-            <!--    CASES MAP -->
-            <div class="row mt case-charts">
-                <div class="map" id="map"></div>
-                <!-- <script>
-                    const fetchEmotionsForPlace = async () => {
-                    const response = await fetch("/most_used_routes_micro/" + region);
-                    const routesJson = await response.json();
-                    console.log(routesJson);
-                    heatmapper(region,routesJson);
-                    }
-                </script> -->
             </div>
         </section><!--/wrapper -->
     </section><!-- /MAIN CONTENT -->
@@ -443,7 +512,6 @@
 <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="assets/js/jquery.scrollTo.min.js"></script>
 <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
-
 
 <!--common script for all pages-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
