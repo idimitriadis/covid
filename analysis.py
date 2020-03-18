@@ -1,9 +1,28 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from datetime import datetime
+from datetime import datetime,timedelta
 import numpy as np
 import requests
 import pickle
+import urllib.request
+
+def get_ecdc_data():
+    datetimeToday = datetime.today()
+    date = datetimeToday.date() #μέρα τώρα
+    time = datetimeToday.time() #ώρα τώρα
+    yesterday = date - timedelta(1) #μέρα ώρα χθες
+    yesterday = str(yesterday) #μέρα χθες
+    import datetime as dt
+    timeFilter = dt.time(9, 00, 00) #ώρα που ανεβάζουν τα data
+    print (timeFilter)
+    if time<timeFilter:
+        print ("...getting yesterday's results...")
+        url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+yesterday+'.xls'
+    else:
+        print ("...getting today's results...")
+        url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+str(date)+'.xls'
+    filename = 'data/ecdcdata'
+    urllib.request.urlretrieve(url, filename)
 
 def map_countries():
     mapping = pickle.load(open('mapping','rb'))
@@ -19,34 +38,34 @@ def map_countries():
     df['lat']=lats
     df['lon']=lons
     return (df)
-    # data = pd.DataFrame.from_dict(mapping, orient='index',columns=['CountryExp', 'lat-lon'])
-    # print (data)
 
 def merge_data():
+    iso = pd.read_csv('data/iso.csv',names=['Country','iso2','iso3'])
+    iso2dict = dict(zip(iso.iso2, iso.Country))
+    iso3dict = dict(zip(iso.iso3, iso.Country))
     locs = map_countries()
-    covid = pd.read_excel('data/COVID-19-geographic-disbtribution-worldwide-2020-03-13.xls')
-    covid['CountryExp'] = covid['CountryExp'].apply(lambda x: x.upper())
-    covid_countries = set(covid['CountryExp'].tolist())
+    oldData = pd.read_excel('data/oldData.xls')
+    eudict = dict(zip(oldData.GeoId,oldData.EU))
+    get_ecdc_data()
+    covid = pd.read_excel('data/ecdcdata')
+
+    covid['CountryExp'] = covid['GeoId'].map(iso2dict)
+    covid = covid.rename(columns={"Cases":"NewConfCases","Deaths":"NewDeaths"})
+    covid['EU'] = covid['GeoId'].map(eudict)
+
     whr2019 = pd.read_csv('data/world-happiness-report-2019.csv')
-    whr2019 = whr2019.rename(columns={"Country (region)": "CountryExp","Log of GDP\nper capita":"Log of GDP per capita","Healthy life\nexpectancy":"Healthy life expectancy"})
-    whr2019['CountryExp'] = whr2019['CountryExp'].apply(lambda x: x.upper())
-    whr_countries = set(whr2019['CountryExp'].tolist())
-    # print (covid_countries-whr_countries)
-    # print (whr2019.columns)
+    whr2019['CountryExp'] = whr2019['iso2'].map(iso2dict)
+    whr2019 = whr2019.rename(columns={"Log of GDP\nper capita":"Log of GDP per capita","Healthy life\nexpectancy":"Healthy life expectancy"})
+
+    df1 = pd.merge(covid,whr2019 , on="CountryExp",how='left')
+    df = pd.merge(df1,locs,on="CountryExp",how='left')
+
     human_freedom = pd.read_csv('data/human_freedom.csv')
-    human_freedom = human_freedom.filter(['countries', 'hf_score'])
-    human_freedom = human_freedom.rename(columns={'countries':'CountryExp'})
-    human_freedom['CountryExp'] = human_freedom['CountryExp'].apply(lambda x: x.upper())
-    # print (freedoms.shape)
-    # print (covid.shape)
-    # print (whr.shape)
-    df1 = pd.merge(covid,whr2019 , on="CountryExp")
-    df = pd.merge(locs,df1,on="CountryExp")
-    # df['DateRep'] = pd.to_datetime(df['DateRep'])
+    human_freedom['CountryExp'] = human_freedom['ISO_code'].map(iso3dict)
+    human_freedom = human_freedom.filter(['CountryExp', 'hf_score','ISO_code'])
+
     df_final = pd.merge(df,human_freedom,on="CountryExp",how='left')
-    # df_final = df_final.filter(['DateRep','CountryExp','NewConfCases','NewDeaths','hf_score','Log of GDP per capita','Healthy life expectancy',
-    #     'Corruption','Freedom','Positive affect','Negative_affect','Social support','Ladder','Generosity'])
-    # print (df.shape)
+
     return df_final
 
 def get_dates(df):
@@ -167,6 +186,7 @@ def get_total_deaths_per_country_nonEU(df):
 def get_cases_per_specific_country(df,country):
     df1 = df[df['CountryExp']==country]
     df2 = df1.groupby(['DateRep','CountryExp'])['NewConfCases'].sum().reset_index()
+    df2 = df2[df2['NewConfCases']>0]
     return df2
 
 def get_deaths_per_specific_country(df,country):
@@ -318,12 +338,15 @@ def get_mapped_data(df):
     df1 = df.groupby(['CountryExp','lat','lon'])['NewDeaths','NewConfCases'].sum().reset_index()
     return df1
 
-
-# print (merge_data())
+# from collections import Counter
+# df =  (merge_data())
+# # print (len(set(sorted(df['CountryExp'].tolist()))))
+# print (Counter(df['CountryExp'].tolist()))
 # print (get_countries_per_capita(df))
 # print (get_todays_cases_EU(df))
-# print (type(get_todays_cases_EU(df)))
+# # print (type(get_todays_cases_EU(df)))
 # print (get_todays_cases_nonEU(df))
-# print (type(get_todays_cases_nonEU(df)))
+# # print (type(get_todays_cases_nonEU(df)))
 # df1 = get_total_cases_per_country_hf(df)
-# print (df1[df1['CountryExp']=='UNITED STATES OF AMERICA'])
+# # print (df1)
+# print (df1[df1['CountryExp']=='Greece'])
