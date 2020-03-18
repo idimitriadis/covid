@@ -32,6 +32,33 @@ function getResultFromEndpoint(endpoint) {
     return tmp;
 }
 
+function processRawData(allText) {
+    var allTextLines = allText.split(/\r\n|\n/);
+    var headers = allTextLines[0].split(',');
+    var lines = [];
+
+    var table = document.getElementById('info-table-body');
+    for (var i=1; i<allTextLines.length; i++) {
+        var data = allTextLines[i].split(',');
+        if (data.length === headers.length) {
+
+            var row = document.createElement("tr");
+            var country = document.createElement("td");
+            country.textContent = data[0];
+            var cases = document.createElement("td");
+            cases.textContent = data[1];
+            var deaths = document.createElement("td");
+            deaths.textContent = data[2];
+
+            row.appendChild(country);
+            row.appendChild(cases);
+            row.appendChild(deaths);
+
+            table.appendChild(row);
+        }
+    }
+}
+
 var totalCases = parseInt(getResultFromEndpoint('/totalCases'));
 var totalDeaths = parseInt(getResultFromEndpoint('/totalDeaths'));
 var totalCasesPerCountry = getResultFromEndpoint('/totalCasesCountry');
@@ -107,6 +134,15 @@ for (var i = 0; i < countryData.length; i++) {
     select3.appendChild(el3);
     select4.appendChild(el4);
 }
+
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "data/table-data.csv",
+        dataType: "text",
+        success: function(data) {processRawData(data);}
+     });
+});
 
 
 

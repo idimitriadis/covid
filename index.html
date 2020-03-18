@@ -10,7 +10,7 @@
     <title> Ο Co-vid 19 σήμερα</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
@@ -18,6 +18,7 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/info-table.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
           integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -31,6 +32,8 @@
             integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
             crossorigin=""></script>
     <script src="https://d3js.org/d3.v4.js"></script>
+
+    <script src="assets/js/customJS.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -134,6 +137,13 @@
                         <span>Χάρτης</span>
                     </a>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="#row8">
+                        <i class="fa fa-desktop"></i>
+                        <span>Αναλυτικός Πίνακας</span>
+                    </a>
+                </li>
             </ul>
             <!-- sidebar menu end-->
         </div>
@@ -155,7 +165,8 @@
                         <!-- INTRO TO THE CASE -->
                         <p class="intro intro-cases">
                             Ενημερωτική ιστοσελίδα για τη δράση του Co-vid 19 παγκοσμίως και σύγκριση με τα
-                            ελληνικά δεδομένα.
+                            ελληνικά δεδομένα. <br> Τα δεδομένα αφορούν το διάστημα: <br>
+                            <span id="time-frame"></span>.
                         </p>
                         <p class="query-words">
                             Λέξεις κλειδιά:
@@ -171,18 +182,18 @@
                         <div class="col-sm-12 col-md-12 col-lg-12">
 
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">Κρούσματα (Κόσμος) <i class="fa fa-globe"></i> </div>
-                                        <div class="panel-body">
-                                            <p id="total-cases"></p>
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="card bg-primary align-items-center" style="height: 150px;">
+                                        <div class="card-header">Κρούσματα (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="card-body">
+                                            <p class="card-text" id="total-cases"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="panel panel-danger">
-                                        <div class="panel-heading">Θάνατοι (Κόσμος) <i class="fa fa-globe"></i> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-6 col-md-6 col-lg-6">
+                                    <div class="card bg-danger align-items-center" style="height: 150px;">
+                                        <div class="card-header">Θάνατοι (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="card-body">
                                             <p id="total-deaths"></p>
                                         </div>
                                     </div>
@@ -190,26 +201,26 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">Κρούσματα (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px; filter: invert(100%);"/> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-primary align-items-center" style="height: 150px;">
+                                        <div class="card-header">Κρούσματα (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px; filter: invert(100%);"/> </div>
+                                        <div class="card-body">
                                             <p id="total-cases-gr"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-danger">
-                                        <div class="panel-heading">Θάνατοι (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px;"/> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-danger align-items-center" style="height: 150px;">
+                                        <div class="card-header">Θάνατοι (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px;"/> </div>
+                                        <div class="card-body">
                                             <p id="total-deaths-gr"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-success">
-                                        <div class="panel-heading">Αναρρώσεις (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px;"/> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-success align-items-center" style="height: 150px;">
+                                        <div class="card-header">Αναρρώσεις (Ελλάδα) <img src="assets/img/gr.png" style="width:12px; height:12px;"/> </div>
+                                        <div class="card-body">
                                             <p id="recovered_greece"></p>
                                         </div>
                                     </div>
@@ -217,34 +228,34 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">Κρούσματα (ΕΕ) <img src="assets/img/eu-white.png" style="width:18px; height:18px;"/> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-3 col-md-3 col-lg-3" style="margin-right:auto">
+                                    <div class="card bg-primary align-items-center" style="height: 150px;">
+                                        <div class="card-header">Κρούσματα (ΕΕ) <img src="assets/img/eu-white.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="card-body">
                                             <p id="cases-EU"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="panel panel-danger">
-                                        <div class="panel-heading">Θανάτοι (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-3-5 col-md-3-5 col-lg-3-5" style="margin-right:auto">
+                                    <div class="card bg-danger align-items-center" style="height: 150px;">
+                                        <div class="card-header">Θανάτοι (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="card-body">
                                             <p id="deaths-EU"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">Κρούσματα (εκτός ΕΕ)</div>
-                                        <div class="panel-body">
+                                <div class="col-sm-3-5 col-md-3-5 col-lg-3-5">
+                                    <div class="card bg-primary align-items-center" style="height: 150px;">
+                                        <div class="card-header">Κρούσματα (εκτός ΕΕ)</div>
+                                        <div class="card-body">
                                             <p id="cases-Non-EU"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="panel panel-danger">
-                                        <div class="panel-heading">Θανάτοι (εκτός ΕΕ)</div>
-                                        <div class="panel-body">
+                                <div class="col-sm-3 col-md-3 col-lg-3" style="margin-left:auto">
+                                    <div class="card bg-danger align-items-center" style="height: 150px;">
+                                        <div class="card-header">Θανάτοι (εκτός ΕΕ)</div>
+                                        <div class="card-body">
                                             <p id="deaths-Non-EU"></p>
                                         </div>
                                     </div>
@@ -252,26 +263,26 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading">Kρούσματα σήμερα (Κόσμος) <i class="fa fa-globe"></i> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-info align-items-center" style="height: 150px;">
+                                        <div class="card-header">Kρούσματα σήμερα (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="card-body">
                                             <p id="casesTodayGlobal"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading">Kρούσματα σήμερα (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-info align-items-center" style="height: 150px;">
+                                        <div class="card-header">Kρούσματα σήμερα (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="card-body">
                                             <p id="casesTodayEU"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-info">
-                                        <div class="panel-heading">Kρούσματα σήμερα (εκτός ΕΕ)</div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-info align-items-center" style="height: 150px;">
+                                        <div class="card-header">Kρούσματα σήμερα (εκτός ΕΕ)</div>
+                                        <div class="card-body">
                                             <p id="casesTodayNonEU"></p>
                                         </div>
                                     </div>
@@ -279,26 +290,26 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="panel panel-warning">
-                                        <div class="panel-heading">Θανάτοι σήμερα (Κόσμος) <i class="fa fa-globe"></i> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-warning align-items-center" style="height: 150px;">
+                                        <div class="card-header">Θανάτοι σήμερα (Κόσμος) <i class="fa fa-globe"></i> </div>
+                                        <div class="card-body">
                                             <p id="deathsTodayGlobal"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-warning">
-                                        <div class="panel-heading">Θανάτοι σήμερα (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-warning align-items-center" style="height: 150px;">
+                                        <div class="card-header">Θανάτοι σήμερα (ΕΕ) <img src="assets/img/eu.png" style="width:18px; height:18px;"/> </div>
+                                        <div class="card-body">
                                             <p id="deathsTodayEU"></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-warning">
-                                        <div class="panel-heading">Θανάτοι σήμερα (εκτός ΕΕ)</div>
-                                        <div class="panel-body">
+                                <div class="col-sm-4 col-md-4 col-lg-4">
+                                    <div class="card bg-warning align-items-center" style="height: 150px;">
+                                        <div class="card-header">Θανάτοι σήμερα (εκτός ΕΕ)</div>
+                                        <div class="card-body">
                                             <p id="deathsTodayNonEU"></p>
                                         </div>
                                     </div>
@@ -410,7 +421,7 @@
                         </div>
                         <div class="col-md-6">
                             <h4>
-                                <i class="fa fa-angle-right"></i> CDF GREECE<i class="fa fa-info-circle infopop-icon"></i>
+                                <i class="fa fa-angle-right"></i> CDF GREECE <i class="fa fa-info-circle infopop-icon"></i>
                             </h4>
                             <div class="infopop">
                                 <p>CDF GREECE</p>
@@ -428,12 +439,12 @@
                             <div class="infopop">
                                 <p>ODDS GLOBAL</p>
                             </div>
-                            <div class="panel-body">
+                            <div class="panel-body morris-chart">
                                 <div id="pdf-global" class="graph"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <h4><i class="fa fa-angle-right"></i> ODDS GREECE<i
+                            <h4><i class="fa fa-angle-right"></i> ODDS GREECE <i
                                     class="fa fa-info-circle infopop-icon"></i></h4>
                             <div class="infopop">
                                 <p>ODDS GREECE</p>
@@ -475,14 +486,24 @@
                     <!--    CASES MAP -->
                     <div class="row mt case-charts" id="row7">
                         <div class="map" id="map"></div>
-                        <!-- <script>
-                            const fetchEmotionsForPlace = async () => {
-                            const response = await fetch("/most_used_routes_micro/" + region);
-                            const routesJson = await response.json();
-                            console.log(routesJson);
-                            heatmapper(region,routesJson);
-                            }
-                        </script> -->
+
+                    </div>
+                </div>
+
+                <!--    TABLE -->
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <div class="row mt case-charts scroll-it" id="row8">
+                        <table class="table-container" id="info-table">
+                            <thead>
+                                <tr>
+                                    <th><h1>Χώρα</h1></th>
+                                    <th><h1>Κρούσματα</h1></th>
+                                    <th><h1>Θάνατοι</h1></th>
+                                </tr>
+                            </thead>
+                            <tbody id="info-table-body">
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 

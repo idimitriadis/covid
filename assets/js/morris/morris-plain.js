@@ -80,7 +80,7 @@ var Script = function () {
         keyVal = keyVal.toFixed(2);
         oddsglobaldata.push({'Cases': keyVal, 'ODDS': Math.log10(value+1)});
     }
-    console.log(oddsglobaldata);
+
     var oddsGR = getResultFromEndpoint('/casesCountryODDS/Greece');
 
     var oddsGRdata = [];

@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_restful import Resource, Api
 import analysis
-import json
+import pandas as pd
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -10,10 +10,16 @@ CORS(app)
 
 df = analysis.merge_data()
 
+df1 = df.groupby('CountryExp')['NewConfCases'].sum().reset_index()
+df2 = df.groupby('CountryExp')['NewDeaths'].sum().reset_index()
+final_df = pd.merge(df1, df2, on='CountryExp')
+final_df.to_csv('data/table-data.csv', index=False)
+
 
 @app.context_processor
 def bind_variables():
     return dict(df=df)
+
 
 class getCountries(Resource):
     def get(self):

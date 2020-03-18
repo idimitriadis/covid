@@ -11,12 +11,19 @@ Premium: http://www.gridgum.com
 
 /* BASIC THEME CONFIGURATION */
 body {
-    color: #797979;
-    background: #f7f9fb;
     font-family: 'Ruda', sans-serif;
+    font-weight: 300;
+    line-height: 1.42em;
+    color: #ecf0f4;
+    background-color: #1F2739;
     padding: 0px !important;
     margin: 0px !important;
-    font-size:13px;
+}
+
+h2, h4{
+    font-weight: bold;
+    line-height: 1em;
+    color: #4DC3FA;
 }
 
 a, a:hover, a:focus {
@@ -2300,7 +2307,7 @@ img{
     background-color: rgba(128,128,128,1.0);
     display: none;
     width: 30%;
-    position: absolute;
+    position: relative;
     float: right;
     border-radius: 5%;
     text-align: justify;
@@ -2408,3 +2415,38 @@ img{
     width: 500px;
   }
 }
+
+.panel-body {
+    background-color: #1F2739;
+}
+
+p {
+    color: #ecf0f4;
+}
+
+.form-group {
+    color: #ecf0f4;
+}
+
+.scroll-it {
+    direction: rtl;
+    overflow:scroll;
+    height:500px;
+    overflow-x: hidden;
+}
+
+.scroll-it table {
+    direction: ltr;
+}
+
+/* FOR MORRIS GRAPHS */
+
+circle {
+    stroke: #1F2739;
+}
+
+.graph svg text {
+    color: #ecf0f4 !important;
+}
+
+/* END FOR MORRIS GRAPHS */

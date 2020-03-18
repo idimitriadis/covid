@@ -338,8 +338,8 @@ def get_mapped_data(df):
     return df1
 
 # from collections import Counter
-df =  (merge_data())
-print (get_total_distribution_of_deaths(df))
+# df =  (merge_data())
+# print (get_total_distribution_of_deaths(df))
 # # print (len(set(sorted(df['CountryExp'].tolist()))))
 # print (Counter(df['CountryExp'].tolist()))
 # print (get_countries_per_capita(df))

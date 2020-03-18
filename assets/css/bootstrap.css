@@ -6202,12 +6202,20 @@ button.close {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
-.panel-heading {
+.card-header {
   font-weight: bold;
   text-align: center;
 }
 
-.panel p {
+.card-text {
   font-weight: bold;
-  text-align: center;
 }
+
+.col-sm-2-5 { width: 20.83333%; }
+.col-md-2-5 { width: 20.83333%; }
+.col-lg-2-5 { width: 20.83333%; }
+
+.col-sm-3-5 { width: 29.16667%; }
+.col-md-3-5 { width: 29.16667%; }
+.col-lg-3-5 { width: 29.16667%; }
+
