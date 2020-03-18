@@ -35,9 +35,9 @@ function getResultFromEndpoint(endpoint) {
 var totalCases = parseInt(getResultFromEndpoint('/totalCases'));
 var totalDeaths = parseInt(getResultFromEndpoint('/totalDeaths'));
 var totalCasesPerCountry = getResultFromEndpoint('/totalCasesCountry');
-var totalCasesGr = totalCasesPerCountry['GREECE'];
+var totalCasesGr = totalCasesPerCountry['Greece'];
 var totalDeathsPerCountry = getResultFromEndpoint('/totalDeathsCountry');
-var totalDeathsGr = totalDeathsPerCountry['GREECE'];
+var totalDeathsGr = totalDeathsPerCountry['Greece'];
 var totalDays = getResultFromEndpoint('/totalDays');
 
 var casesEU = getResultFromEndpoint('/casesEU');

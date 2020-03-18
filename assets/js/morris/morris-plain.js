@@ -42,7 +42,7 @@ var Script = function () {
         cdfglobaldata.push({'Cases': keyVal, 'CDF': value});
     }
 
-    var cdfGR = getResultFromEndpoint('/casesCountryCDF/GREECE');
+    var cdfGR = getResultFromEndpoint('/casesCountryCDF/Greece');
     var cdfGRdata = [];
     for (let [key, value] of Object.entries(cdfGR)) {
         var keyVal = parseFloat(key);
@@ -81,7 +81,7 @@ var Script = function () {
         oddsglobaldata.push({'Cases': keyVal, 'ODDS': Math.log10(value)});
     }
     // console.log(oddsglobaldata);
-    var oddsGR = getResultFromEndpoint('/casesCountryODDS/GREECE');
+    var oddsGR = getResultFromEndpoint('/casesCountryODDS/Greece');
 
     var oddsGRdata = [];
     for (let [key, value] of Object.entries(oddsGR)) {
@@ -211,7 +211,7 @@ function compareCases() {
     for (let [key, value] of Object.entries(totalCasesDay1)) {
         datas.push({'Day': key, 'Cases1': Math.log(value+1), 'Cases2': Math.log(totalCasesDay2[key]+1)});
     }
-
+    console.log(datas);
     Morris.Line({
         element: 'cases-per-day',
         data: datas,

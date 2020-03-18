@@ -66,7 +66,6 @@ api.add_resource(totalCasesDay,'/totalCasesDay')
 
 class casesPerSpecificCountry(Resource):
     def get(self,country):
-        country = country.upper()
         from analysis import get_cases_per_specific_country
         df1 = get_cases_per_specific_country(df,country)
         df1['DateRep']= df1['DateRep'].astype(str)
@@ -77,7 +76,6 @@ api.add_resource(casesPerSpecificCountry,'/casesPerSpecificCountry/<string:count
 
 class deathsPerSpecificCountry(Resource):
     def get(self,country):
-        country = country.upper()
         from analysis import get_deaths_per_specific_country
         df1 = get_deaths_per_specific_country(df,country)
         df1['DateRep']= df1['DateRep'].astype(str)
@@ -164,8 +162,8 @@ class casesODDS(Resource):
     def get(self):
         from analysis import get_total_distribution_of_cases
         df1 = get_total_distribution_of_cases(df)
-        df1 = df1.sort_values(by=['odds'],ascending=True)
-        df1 = df1[0:df1.shape[0]]
+        # df1 = df1.sort_values(by=['odds'],ascending=True)
+        df1 = df1[0:df1.shape[0]-2]
         mydict = dict(zip(df1['NewConfCases'],df1['odds']))
         return mydict
 
@@ -173,7 +171,6 @@ api.add_resource(casesODDS,'/casesODDS')
 
 class casesCountryCDF(Resource):
     def get(self,country):
-        country = country.upper()
         from analysis import get_total_distribution_of_cases_per_specific_country
         df1 = get_total_distribution_of_cases_per_specific_country(df,country)
         mydict = dict(zip(df1['NewConfCases'],df1['cdf']))
@@ -183,7 +180,6 @@ api.add_resource(casesCountryCDF,'/casesCountryCDF/<string:country>')
 
 class casesCountryPDF(Resource):
     def get(self,country):
-        country = country.upper()
         from analysis import get_total_distribution_of_cases_per_specific_country
         df1 = get_total_distribution_of_cases_per_specific_country(df,country)
         mydict = dict(zip(df1['NewConfCases'],df1['pdf']))
@@ -193,11 +189,10 @@ api.add_resource(casesCountryPDF,'/casesCountryPDF/<string:country>')
 
 class casesCountryODDS(Resource):
     def get(self,country):
-        country = country.upper()
         from analysis import get_total_distribution_of_cases_per_specific_country
         df1 = get_total_distribution_of_cases_per_specific_country(df,country)
-        df1 = df1.sort_values(by=['odds'],ascending=True)
-        df1 = df1[0:df1.shape[0]]
+        # df1 = df1.sort_values(by=['odds'],ascending=True)
+        df1 = df1[0:df1.shape[0]-2]
         mydict = dict(zip(df1['NewConfCases'],df1['odds']))
         return (mydict)
 

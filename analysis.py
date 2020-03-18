@@ -186,7 +186,6 @@ def get_total_deaths_per_country_nonEU(df):
 def get_cases_per_specific_country(df,country):
     df1 = df[df['CountryExp']==country]
     df2 = df1.groupby(['DateRep','CountryExp'])['NewConfCases'].sum().reset_index()
-    df2 = df2[df2['NewConfCases']>0]
     return df2
 
 def get_deaths_per_specific_country(df,country):
@@ -339,7 +338,8 @@ def get_mapped_data(df):
     return df1
 
 # from collections import Counter
-# df =  (merge_data())
+df =  (merge_data())
+print (get_total_distribution_of_deaths(df))
 # # print (len(set(sorted(df['CountryExp'].tolist()))))
 # print (Counter(df['CountryExp'].tolist()))
 # print (get_countries_per_capita(df))
