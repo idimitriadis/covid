@@ -18,6 +18,7 @@ def bind_variables():
 class getCountries(Resource):
     def get(self):
         result = list(set(df['CountryExp'].tolist()))
+        result = sorted(result)
         return jsonify(result)
 
 api.add_resource(getCountries, '/getCountries')
