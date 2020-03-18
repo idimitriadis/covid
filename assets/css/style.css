@@ -2394,6 +2394,15 @@ img{
     margin-top: -2%;
 }
 
+.tooltip {
+            position: absolute;
+            font-size: 12px;
+            width:  auto;
+            height: auto;
+            pointer-events: none;
+            background-color: white;
+        }
+
 @media (min-width: 768px) {
   .bubble-chart{
     width: 500px;

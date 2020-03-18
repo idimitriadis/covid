@@ -19,12 +19,19 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
 
-    <script src="https://cdn.anychart.com/js/latest/anychart.min.js" type="text/javascript"></script>
-    <script src="https://cdn.anychart.com/js/latest/anymap.min.js" type="text/javascript"></script>
-    <script src="https://cdn.anychart.com/geodata/1.2.0/custom/world_source/world_source.js"></script>
-
-    <script src="assets/js/customJS.js"></script>
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"
+      integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+      crossorigin=""></script>
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -254,6 +261,66 @@
                             </div>
                             <div class="row">
                                 <div class="box0 box1">
+                                    <h2>Κρούσματα στην Ευρώπη</h2>
+                                    <h3 id='cases-EU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Κρούσματα στον υπόλοιπο Κόσμο</h2>
+                                    <h3 id='cases-Non-EU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Θανάτοι στην Ευρώπη</h2>
+                                    <h3 id='deaths-EU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Θανάτοι εκτός Ευρώπη</h2>
+                                    <h3 id='deaths-Non-EU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Kρούσματα σήμερα στην ΕΕ</h2>
+                                    <h3 id='casesTodayEU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Kρούσματα σήμερα εκτός ΕΕ</h2>
+                                    <h3 id='casesTodayNonEU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Kρούσματα σήμερα παγκοσμίως</h2>
+                                    <h3 id='casesTodayGlobal'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Θανάτοι σήμερα στην ΕΕ</h2>
+                                    <h3 id='deathsTodayEU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Θανάτοι σήμερα εκτός ΕΕ</h2>
+                                    <h3 id='deathsTodayNonEU'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
+                                    <h2>Θανάτοι σήμερα παγκοσμίως</h2>
+                                    <h3 id='deathsTodayGlobal'></h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="box0 box1">
                                     <span class="fa fa-calendar-o"></span>
                                     <h4 id='time-frame'></h4>
                                     <p>Τα δεδομένα αφορούν το παραπάνω διάστημα</p>
@@ -311,292 +378,43 @@
             </div>
             <!-- FOURTH ROW: 3rd PLOT -->
             <div class="row mt case-charts" id="second-row">
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και κατά κεφαλήν εισόδημα ανά κράτος <i
+                <div class="col-md-12">
+                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και διαφθορά <i
                             class="fa fa-info-circle infopop-icon"></i></h4>
                     <div class="infopop">
-                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το κατά κεφαλήν εισόδημα παγκοσμίως.</p>
+                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με την αίσθηση διαφθοράς που επικρατεί.</p>
                     </div>
                     <div class="panel-body">
                         <div id="cases-per-capita" class="graph"></div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> Κατά κεφαλήν εισόδημα ανά κράτος <i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>Περιγράφει το κατά κεφαλήν εισόδημα ανά κράτος. Οι τιμές είναι σε λογαριθμική κλίμακα</p>
-                    </div>
-                    <div class="panel-body">
-                        <div id="countries_per_capita" class="graph"></div>
-                    </div>
-                </div>
             </div>
             <!-- FIFTH ROW -->
             <div class="row mt case-charts" id="second-row">
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και ακαθάριστο εθνικό προϊόν <i
+                <div class="col-md-12">
+                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και αίσθηση ελευεθερίας <i
                             class="fa fa-info-circle infopop-icon"></i></h4>
                     <div class="infopop">
-                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το εθνικό ακαθάριστο προϊόν παγκοσμίως.</p>
-                    </div>
-                    <div class="panel-body">
-                        <div id="totalCasesHumanFreedom" class="graph"></div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h4><i class="fa fa-angle-right"></i> Κρούσματα και προσδόκιμο ζωής <i
-                            class="fa fa-info-circle infopop-icon"></i></h4>
-                    <div class="infopop">
-                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με το προσδόκιμο ζωής παγκοσμίως.</p>
+                        <p>Περιγράφει τον αριθμό κρουσμάτων συγκριτικά με την αίσθηση ελευθερίας των πολιτών ανά κράτος.</p>
                     </div>
                     <div class="panel-body">
                         <div id="humanfreedomCountry" class="graph"></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row mt case-charts">
-                <h4><i class="fa fa-angle-right"></i> Most Frequent Users &amp; Mentions / Location Map <i
-                        class="fa fa-info-circle infopop-icon"></i></h4>
-                <div class="infopop">
-                    <p>The bubble chart contains the most frequent users that tweeted about the event, the tagcloud
-                        contains the most frequent mentions included in the tweets and the choropleth map shows the
-                        locations that interacted with the tweet.</p>
-                </div>
-                <!-- TABLE OF MOST FREQUENT USERS -->
-                <div class="col-md-3 col-md-offset-1">
-                    <table class="table table-hover mt">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Word</th>
-                            <th>Frequency</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>@YouTube</td>
-                            <td>159</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>@bet365</td>
-                            <td>134</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>@realDonaldTrump</td>
-                            <td>115</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>@NaseemNsm1</td>
-                            <td>101</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>@DavidVonderhaar</td>
-                            <td>89</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>@Treyarch</td>
-                            <td>75</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>@FootyAccums</td>
-                            <td>73</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>@ManUtd</td>
-                            <td>59</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>@SkyBet</td>
-                            <td>58</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>@FootySuperTips</td>
-                            <td>54</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- TAG CLOUD - MOST FREQUENT USERS -->
-                <div class="col-lg-8 tag-cloud">
-                    <script src="https://cdn.tagul.com/embed/8beavw8xhfjk"></script>
-                </div>
             </div>
-            <div class="row mt case-charts">
-                <!-- BUBBLE CHART - MENTIONS -->
-                <div class="col-md-offset-1 col-md-8 bubble-chart">
-                    <img src="images/bubble-general.png"/>
-                </div>
-                <!-- TABLE OF MOST FREQUENT MENTIONS -->
-                <div class="col-md-3">
-                    <table class="table table-hover mt">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Word</th>
-                            <th>Frequency</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>@IQ_Bet</td>
-                            <td>1742</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>@Tips4Bet</td>
-                            <td>1319</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>@inplay_betting</td>
-                            <td>1263</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>@FootySuperTips</td>
-                            <td>1006</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>@Oddsmeter</td>
-                            <td>721</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>@livetennis</td>
-                            <td>636</td>
-                        </tr>
-                        <tr>
-                            <td>7</td>
-                            <td>@Free_Bet_Club</td>
-                            <td>470</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                            <td>@Tipsteric</td>
-                            <td>427</td>
-                        </tr>
-                        <tr>
-                            <td>9</td>
-                            <td>@Mrfootball_Bet_</td>
-                            <td>351</td>
-                        </tr>
-                        <tr>
-                            <td>10</td>
-                            <td>@ApolloBet</td>
-                            <td>277</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!-- FREQUENT LOCATIONS MAP -->
-            <div class="row mt case-charts">
-                <div class="map" id="map"></div>
+            <!--    CASES MAP -->
+<!--             <div class="row mt case-charts">
+                <div class="map" id="routes_micro_container"></div>
                 <script>
-                    anychart.onDocumentReady(
-                        function () {
-                            map = anychart.map();
-
-                            // insert data
-                            var dataSet = anychart.data.set([
-                                {'id': 'IN', 'value': 64},
-                                {'id': 'AU', 'value': 55},
-                                {'id': 'FR', 'value': 54},
-                                {'id': 'PH', 'value': 53},
-                                {'id': 'GB', 'value': 49},
-                                {'id': 'NG', 'value': 48},
-                                {'id': 'US', 'value': 48},
-                                {'id': 'CA', 'value': 46},
-                                {'id': 'DE', 'value': 36},
-                                {'id': 'IE', 'value': 36},
-                                {'id': 'MY', 'value': 35},
-                                {'id': 'ES', 'value': 34},
-                                {'id': 'JP', 'value': 33},
-                                {'id': 'ZA', 'value': 30},
-                                {'id': 'NZ', 'value': 25},
-                                {'id': 'PK', 'value': 25},
-                                {'id': 'SA', 'value': 23},
-                                {'id': 'IT', 'value': 21},
-                                {'id': 'BE', 'value': 21},
-                                {'id': 'GH', 'value': 20},
-                                {'id': 'CN', 'value': 18},
-                                {'id': 'AE', 'value': 17},
-                                {'id': 'ID', 'value': 15},
-                                {'id': 'CM', 'value': 15},
-                                {'id': 'TR', 'value': 14},
-                                {'id': 'AR', 'value': 13},
-                                {'id': 'FI', 'value': 12},
-                                {'id': 'PT', 'value': 12},
-                                {'id': 'KE', 'value': 12},
-                                {'id': 'QA', 'value': 9},
-                                {'id': 'PL', 'value': 9},
-                                {'id': 'BW', 'value': 9},
-                                {'id': 'SE', 'value': 8},
-                                {'id': 'BR', 'value': 7},
-                                {'id': 'PA', 'value': 7},
-                                {'id': 'KR', 'value': 7},
-                                {'id': 'NL', 'value': 6},
-                                {'id': 'HK', 'value': 6},
-                                {'id': 'CH', 'value': 6},
-                                {'id': 'ZM', 'value': 5},
-                                {'id': 'UG', 'value': 5},
-                                {'id': 'BD', 'value': 5},
-                                {'id': 'MX', 'value': 5},
-                                {'id': 'ZW', 'value': 5},
-                                {'id': 'RU', 'value': 4},
-                                {'id': 'CL', 'value': 4},
-                                {'id': 'TZ', 'value': 4},
-                                {'id': 'DK', 'value': 3},
-                                {'id': 'GR', 'value': 3},
-                                {'id': 'TH', 'value': 1},
-                                {'id': 'SK', 'value': 1},
-                                {'id': 'CO', 'value': 1}
-                            ]);
-
-                            // create choropleth series
-                            series = map.choropleth(dataSet);
-
-                            // set geoIdField to 'id', this field contains in geo data meta properties
-                            series.geoIdField('id');
-
-                            // set map color settings
-                            series.colorScale(anychart.scales.linearColor('#effbfd', '#68dff0'));
-                            series.hoverFill('#ed5565');
-
-                            // disable countries' labels
-                            series.labels(false);
-
-                            // set map title
-                            map.title().enabled(true).text('Most Frequent Locations talking about Match Fixing\n');
-
-                            // set geo data, you can find this map in our geo maps collection
-                            // https://cdn.anychart.com/#maps-collection
-                            map.geoData(anychart.maps['world_source']);
-
-                            //set map container id (div)
-                            map.container('map');
-
-                            //initiate map drawing
-                            map.draw();
-
-                            // anychart.installStyles('body{font-family:Verdana,\'Helvetica Neue\',Arial,Helvetica,Geneva,sans-serif;background-color:red;}');
-                        });
+                    const fetchEmotionsForPlace = async () => {
+                    const response = await fetch("/most_used_routes_micro/" + region);
+                    const routesJson = await response.json();
+                    console.log(routesJson);
+                    heatmapper(region,routesJson);
+                    }
                 </script>
-            </div>
+            </div> -->
         </section><!--/wrapper -->
     </section><!-- /MAIN CONTENT -->
 
@@ -632,6 +450,9 @@
 <!--script for this page-->
 <script src="assets/js/morris/morris-plain.js"></script>
 <script src="assets/js/bind-variables.js"></script>
+<script type="text/javascript" src="assets/js/myheatmap.js"></script>
+<script type="text/javascript" src="assets/js/leaflet-heat.js"></script>
+<!-- <script src="assets/js/scatter.js"></script> -->
 
 </body>
 </html>

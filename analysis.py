@@ -15,19 +15,16 @@ def merge_data():
     # print (whr2019.columns)
     human_freedom = pd.read_csv('data/human_freedom.csv')
     human_freedom = human_freedom.filter(['countries', 'hf_score'])
-    econ_freedom = pd.read_csv('data/economic_freedom.csv')
-    econ_freedom = econ_freedom.filter(['countries','ECONOMIC FREEDOM'])
-    freedoms = pd.merge(econ_freedom,human_freedom,on="countries")
-    freedoms = freedoms.rename(columns={'countries':'CountryExp'})
-    freedoms['CountryExp'] = freedoms['CountryExp'].apply(lambda x: x.upper())
+    human_freedom = human_freedom.rename(columns={'countries':'CountryExp'})
+    human_freedom['CountryExp'] = human_freedom['CountryExp'].apply(lambda x: x.upper())
     # print (freedoms.shape)
     # print (covid.shape)
     # print (whr.shape)
     df = pd.merge(covid,whr2019 , on="CountryExp")
     # df['DateRep'] = pd.to_datetime(df['DateRep'])
-    df_final = pd.merge(df,freedoms,on="CountryExp",how='outer')
-    df_final = df_final.filter(['DateRep','CountryExp','NewConfCases','NewDeaths','ECONOMIC FREEDOM','hf_score','Log of GDP per capita','Healthy life expectancy',
-        'Corruption','Freedom','Positive affect','Negative_affect','Social support','Ladder','Generosity'])
+    df_final = pd.merge(df,human_freedom,on="CountryExp",how='left')
+    # df_final = df_final.filter(['DateRep','CountryExp','NewConfCases','NewDeaths','hf_score','Log of GDP per capita','Healthy life expectancy',
+    #     'Corruption','Freedom','Positive affect','Negative_affect','Social support','Ladder','Generosity'])
     # print (df.shape)
     return df_final
 
@@ -44,6 +41,56 @@ def get_total_cases(df):#
 
 def get_total_deaths(df):#
     return df['NewDeaths'].sum()
+
+def get_total_casesEU(df):#
+    df = df[df['EU']=='EU']
+    return df['NewConfCases'].sum()
+
+def get_total_deathsEU(df):#
+    df = df[df['EU']=='EU']
+    return df['NewDeaths'].sum()
+
+def get_total_cases_nonEU(df):
+    df = df[df['EU']!='EU']
+    return df['NewConfCases'].sum()
+
+def get_total_deaths_nonEU(df):#
+    df = df[df['EU']!='EU']
+    return df['NewDeaths'].sum()
+
+def get_todays_cases_EU(df):
+    df=df[df['EU']=='EU']
+    df1 = df.groupby('DateRep')['NewConfCases'].sum().reset_index()
+    df1 = df1.sort_values(by='DateRep')
+    return df1['NewConfCases'].iloc[-1]
+
+def get_todays_cases_nonEU(df):
+    df=df[df['EU']!='EU']
+    df1 = df.groupby('DateRep')['NewConfCases'].sum().reset_index()
+    df1 = df1.sort_values(by='DateRep')
+    return df1['NewConfCases'].iloc[-1]
+
+def get_todays_cases_global(df):
+    df1 = df.groupby('DateRep')['NewConfCases'].sum().reset_index()
+    df1 = df1.sort_values(by='DateRep')
+    return df1['NewConfCases'].iloc[-1]
+
+def get_todays_deaths_EU(df):
+    df=df[df['EU']=='EU']
+    df1 = df.groupby('DateRep')['NewDeaths'].sum().reset_index()
+    df1 = df1.sort_values(by='DateRep')
+    return df1['NewDeaths'].iloc[-1]
+
+def get_todays_deaths_nonEU(df):
+    df=df[df['EU']!='EU']
+    df1 = df.groupby('DateRep')['NewDeaths'].sum().reset_index()
+    df1 = df1.sort_values(by='DateRep')
+    return df1['NewDeaths'].iloc[-1]
+
+def get_todays_deaths_global(df):
+    df1 = df.groupby('DateRep')['NewDeaths'].sum().reset_index()
+    df1 = df1.sort_values(by='DateRep')
+    return df1['NewDeaths'].iloc[-1]
 
 def get_total_cases_per_day(df):#
     df1 = df.groupby('DateRep')['NewConfCases'].sum().reset_index()
@@ -65,11 +112,35 @@ def get_total_cases_per_country(df):
     df1 = df.groupby('CountryExp')['NewConfCases'].sum().reset_index()
     return df1
 
+def get_total_cases_per_country_EU(df):
+    df1 = df[df['EU']=='EU']
+    df1 = df.groupby('CountryExp')['NewConfCases'].sum().reset_index()
+    return df1
+
+def get_total_cases_per_country_nonEU(df):
+    df1 = df[df['EU']!='EU']
+    df1 = df.groupby('CountryExp')['NewConfCases'].sum().reset_index()
+    return df1
+
 def get_total_cases_per_country_hf(df):
-    df1 = df.groupby(['CountryExp','hf_score','ECONOMIC FREEDOM'])['NewConfCases'].sum().reset_index()
+    df1 = df.groupby(['CountryExp','hf_score'])['NewConfCases'].sum().reset_index()
+    return df1
+
+def get_total_cases_per_country_cap(df):
+    df1 = df.groupby(['CountryExp','Corruption'])['NewConfCases'].sum().reset_index()
     return df1
 
 def get_total_deaths_per_country(df):
+    df1 = df.groupby('CountryExp')['NewDeaths'].sum().reset_index()
+    return df1
+
+def get_total_deaths_per_country_EU(df):
+    df1 = df[df['EU']=='EU']
+    df1 = df.groupby('CountryExp')['NewDeaths'].sum().reset_index()
+    return df1
+
+def get_total_deaths_per_country_nonEU(df):
+    df1 = df[df['EU']!='EU']
     df1 = df.groupby('CountryExp')['NewDeaths'].sum().reset_index()
     return df1
 
@@ -205,13 +276,9 @@ def get_cases_per_freedom(df):
 
 def get_cases_per_human_freedom(df):
     # print (df['hf_score'],df['NewConfCases'])
-    df['NewConfCases']+=1
+    # df['NewConfCases']+=1
     # df['NewConfCases']=df['NewConfCases'].apply(np.log10)
     df1 = df.groupby('hf_score')['NewConfCases'].sum().reset_index()
-    return df1
-
-def get_cases_per_economic_freedom(df):
-    df1 = df.groupby('ECONOMIC FREEDOM')['NewConfCases'].sum().reset_index()
     return df1
 
 def get_cases_per_rank(df):
@@ -219,14 +286,17 @@ def get_cases_per_rank(df):
     return df1
 
 def get_countries_per_capita(df):
-    df = df.dropna()
     df = df[df['Log of GDP per capita']>-1]
     df1 = df.groupby('CountryExp')['Log of GDP per capita'].mean().to_frame('capita').reset_index()
     return df1
 
 df = merge_data()
-print (get_total_cases_per_country_hf(df))
-# print (get_cases_per_human_freedom(df))
-# # print ( get_cases_per_human_freedom(df))
-# print (get_total_distribution_of_cases_per_specific_country(df,'GREECE'))
-# get_countries_per_capita(df)
+print (set(df['CountryExp'].tolist()))
+
+# print (get_countries_per_capita(df))
+# print (get_todays_cases_EU(df))
+# print (type(get_todays_cases_EU(df)))
+# print (get_todays_cases_nonEU(df))
+# print (type(get_todays_cases_nonEU(df)))
+# df1 = get_total_cases_per_country_hf(df)
+# print (df1[df1['CountryExp']=='UNITED STATES OF AMERICA'])

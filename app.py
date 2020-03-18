@@ -165,7 +165,7 @@ class casesODDS(Resource):
         from analysis import get_total_distribution_of_cases
         df1 = get_total_distribution_of_cases(df)
         df1 = df1.sort_values(by=['odds'],ascending=True)
-        df1 = df1[0:df1.shape[0]-2]
+        df1 = df1[0:df1.shape[0]]
         mydict = dict(zip(df1['NewConfCases'],df1['odds']))
         return mydict
 
@@ -197,7 +197,7 @@ class casesCountryODDS(Resource):
         from analysis import get_total_distribution_of_cases_per_specific_country
         df1 = get_total_distribution_of_cases_per_specific_country(df,country)
         df1 = df1.sort_values(by=['odds'],ascending=True)
-        df1 = df1[0:df1.shape[0]-2]
+        df1 = df1[0:df1.shape[0]]
         mydict = dict(zip(df1['NewConfCases'],df1['odds']))
         return (mydict)
 
@@ -217,11 +217,101 @@ class human_freedom_per_country(Resource):
     def get(self):
         from analysis import get_total_cases_per_country_hf
         df1 = get_total_cases_per_country_hf(df)
-        df1['wanted'] = df1['NewConfCases']+df1['CountryExp']
-        mydict = dict(zip(df1['hf_score'],df['wanted']))
+        df1 = df1.sort_values(by=['hf_score'],ascending=True)
+        mydict = dict(zip(df1['CountryExp'],zip(df1['NewConfCases'],df1['hf_score'])))
         return (mydict)
 
 api.add_resource(human_freedom_per_country,'/human_freedom_per_country')
 
+class capita_and_cases_per_country(Resource):
+    def get(self):
+        from analysis import get_total_cases_per_country_cap
+        df1 = get_total_cases_per_country_cap(df)
+        df1 = df1[df1['Corruption']>0]
+        df1 = df1.sort_values(by=['Corruption'],ascending=True)
+        mydict = dict(zip(df1['CountryExp'],zip(df1['NewConfCases'],df1['Corruption'])))
+        return (mydict)
+
+api.add_resource(capita_and_cases_per_country,'/capita_and_cases_per_country')
+
+class casesEU(Resource):
+    def get(self):
+        from analysis import get_total_casesEU
+        df1 = get_total_casesEU(df)
+        return (int(df1))
+
+api.add_resource(casesEU,'/casesEU')
+
+class casesnonEU(Resource):
+    def get(self):
+        from analysis import get_total_cases_nonEU
+        df1 = get_total_cases_nonEU(df)
+        return (int(df1))
+
+api.add_resource(casesnonEU,'/casesnonEU')
+
+class deathsEU(Resource):
+    def get(self):
+        from analysis import get_total_deathsEU
+        df1 = get_total_deathsEU(df)
+        return (int(df1))
+
+api.add_resource(deathsEU,'/deathsEU')
+
+class deathsnonEU(Resource):
+    def get(self):
+        from analysis import get_total_deaths_nonEU
+        df1 = get_total_deaths_nonEU(df)
+        return (int(df1))
+
+api.add_resource(deathsnonEU,'/deathsnonEU')
+
+class cases_todayEU(Resource):
+    def get(self):
+        from analysis import get_todays_cases_EU
+        df1 = get_todays_cases_EU(df)
+        return (int(df1))
+
+api.add_resource(cases_todayEU,'/cases_todayEU')
+
+class cases_today_nonEU(Resource):
+    def get(self):
+        from analysis import get_todays_cases_nonEU
+        df1 = get_todays_cases_nonEU(df)
+        return (int(df1))
+
+api.add_resource(cases_today_nonEU,'/cases_today_nonEU')
+
+class cases_today_global(Resource):
+    def get(self):
+        from analysis import get_todays_cases_global
+        df1 = get_todays_cases_global(df)
+        return (int(df1))
+
+api.add_resource(cases_today_global,'/cases_today_global')
+
+class deaths_today_EU(Resource):
+    def get(self):
+        from analysis import get_todays_deaths_EU
+        df1 = get_todays_deaths_EU(df)
+        return (int(df1))
+
+api.add_resource(deaths_today_EU,'/deaths_today_EU')
+
+class deaths_today_nonEU(Resource):
+    def get(self):
+        from analysis import get_todays_deaths_nonEU
+        df1 = get_todays_deaths_nonEU(df)
+        return (int(df1))
+
+api.add_resource(deaths_today_nonEU,'/deaths_today_nonEU')
+
+class deaths_today_global(Resource):
+    def get(self):
+        from analysis import get_todays_deaths_global
+        df1 = get_todays_deaths_global(df)
+        return (int(df1))
+
+api.add_resource(deaths_today_global,'/deaths_today_global')
 
 app.run(port=5000)

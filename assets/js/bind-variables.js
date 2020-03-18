@@ -40,6 +40,29 @@ var totalDeathsPerCountry = getResultFromEndpoint('/totalDeathsCountry');
 var totalDeathsGr = totalDeathsPerCountry['GREECE'];
 var totalDays = getResultFromEndpoint('/totalDays');
 
+var casesEU = getResultFromEndpoint('/casesEU');
+var casesNonEU = getResultFromEndpoint('/casesnonEU');
+var deathsEU = getResultFromEndpoint('/deathsEU');
+var deathsNonEU = getResultFromEndpoint('/deathsnonEU');
+var casesTodayEU = getResultFromEndpoint('/cases_todayEU');
+var casesTodayNonEU = getResultFromEndpoint('/cases_today_nonEU');
+var casesTodayGlobal = getResultFromEndpoint('/cases_today_global');
+var deathsTodayEU = getResultFromEndpoint('/deaths_today_EU');
+var deathsTodayNonEU = getResultFromEndpoint('/deaths_today_nonEU');
+var deaths_today_global = getResultFromEndpoint('/deaths_today_global');
+
+
+
+$('#cases-EU').text(casesEU);
+$('#cases-Non-EU').text(casesNonEU);
+$('#deaths-EU').text(deathsEU);
+$('#deaths-Non-EU').text(deathsNonEU);
+$('#casesTodayEU').text(casesTodayEU);
+$('#casesTodayNonEU').text(casesTodayNonEU);
+$('#casesTodayGlobal').text(casesTodayGlobal);
+$('#deathsTodayEU').text(deathsTodayEU);
+$('#deathsTodayNonEU').text(deathsTodayNonEU);
+$('#deathsTodayGlobal').text(deaths_today_global);
 $('#total-cases').text(totalCases);
 $('#total-deaths').text(totalDeaths);
 $('#total-cases-gr').text(totalCasesGr);
