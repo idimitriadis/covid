@@ -336,4 +336,17 @@ class mapped_results(Resource):
 
 api.add_resource(mapped_results,'/mapped_results')
 
+class greek_data(Resource):
+    def get(self):
+        from analysis import get_greek_data
+        df1 = get_greek_data()
+        mydict={}
+        for i,r in df1.iterrows():
+            mydict.update({r['cities']:[r['cases'],r['deaths'],r['lat'],r['lon']]})
+        return jsonify(mydict)
+
+api.add_resource(greek_data,'/greek_data')
+
+
+
 app.run(port=5000)

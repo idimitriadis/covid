@@ -13,10 +13,10 @@ Aruba,AW,ABW
 Australia,AU,AUS
 Austria,AT,AUT
 Azerbaijan,AZ,AZE
-Bahamas (the),BS,BHS
+Bahamas ,BS,BHS
 Bahrain,BH,BHR
 Bangladesh,BD,BGD
-Barbados,BB,BRB
+Barbados,BB,BRD
 Belarus,BY,BLR
 Belgium,BE,BEL
 Belize,BZ,BLZ
@@ -29,7 +29,7 @@ Bosnia and Herzegovina,BA,BIH
 Botswana,BW,BWA
 Bouvet Island,BV,BVT
 Brazil,BR,BRA
-British Indian Ocean Territory (the),IO,IOT
+British Indian Ocean Territory ,IO,IOT
 Brunei Darussalam,BN,BRN
 Bulgaria,BG,BGR
 Burkina Faso,BF,BFA
@@ -38,18 +38,18 @@ Cabo Verde,CV,CPV
 Cambodia,KH,KHM
 Cameroon,CM,CMR
 Canada,CA,CAN
-Cayman Islands (the),KY,CYM
-Central African Republic (the),CF,CAF
+Cayman Islands ,KY,CYM
+Central African Republic ,CF,CAF
 Chad,TD,TCD
 Chile,CL,CHL
 China,CN,CHN
 Christmas Island,CX,CXR
-Cocos (Keeling) Islands (the),CC,CCK
+Cocos (Keeling) Islands ,CC,CCK
 Colombia,CO,COL
-Comoros (the),KM,COM
+Comoros ,KM,COM
 Congo (the Democratic Republic of the),CD,COD
-Congo (the),CG,COG
-Cook Islands (the),CK,COK
+Congo ,CG,COG
+Cook Islands ,CK,COK
 Costa Rica,CR,CRI
 Croatia,HR,HRV
 Cuba,CU,CUB
@@ -60,7 +60,7 @@ Cote d'Ivoire,CI,CIV
 Denmark,DK,DNK
 Djibouti,DJ,DJI
 Dominica,DM,DMA
-Dominican Republic (the),DO,DOM
+Dominican Republic ,DO,DOM
 Ecuador,EC,ECU
 Egypt,EG,EGY
 El Salvador,SV,SLV
@@ -69,16 +69,16 @@ Eritrea,ER,ERI
 Estonia,EE,EST
 Eswatini,SZ,SWZ
 Ethiopia,ET,ETH
-Falkland Islands (the) [Malvinas],FK,FLK
-Faroe Islands (the),FO,FRO
+Falkland Islands  [Malvinas],FK,FLK
+Faroe Islands ,FO,FRO
 Fiji,FJ,FJI
 Finland,FI,FIN
 France,FR,FRA
 French Guiana,GF,GUF
 French Polynesia,PF,PYF
-French Southern Territories (the),TF,ATF
+French Southern Territories ,TF,ATF
 Gabon,GA,GAB
-Gambia (the),GM,GMB
+Gambia ,GM,GMB
 Georgia,GE,GEO
 Germany,DE,DEU
 Ghana,GH,GHA
@@ -95,7 +95,7 @@ Guinea-Bissau,GW,GNB
 Guyana,GY,GUY
 Haiti,HT,HTI
 Heard Island and McDonald Islands,HM,HMD
-Holy See (the),VA,VAT
+Holy See ,VA,VAT
 Honduras,HN,HND
 Hong Kong,HK,HKG
 Hungary,HU,HUN
@@ -119,7 +119,7 @@ Korea (the Democratic People's Republic of),KP,PRK
 Korea (the Republic of),KR,KOR
 Kuwait,KW,KWT
 Kyrgyzstan,KG,KGZ
-Lao People's Democratic Republic (the),LA,LAO
+Lao People's Democratic Republic ,LA,LAO
 Latvia,LV,LVA
 Lebanon,LB,LBN
 Lesotho,LS,LSO
@@ -135,7 +135,7 @@ Malaysia,MY,MYS
 Maldives,MV,MDV
 Mali,ML,MLI
 Malta,MT,MLT
-Marshall Islands (the),MH,MHL
+Marshall Islands ,MH,MHL
 Martinique,MQ,MTQ
 Mauritania,MR,MRT
 Mauritius,MU,MUS
@@ -153,15 +153,15 @@ Myanmar,MM,MMR
 Namibia,NA,NAM
 Nauru,NR,NRU
 Nepal,NP,NPL
-Netherlands (the),NL,NLD
+Netherlands ,NL,NLD
 New Caledonia,NC,NCL
 New Zealand,NZ,NZL
 Nicaragua,NI,NIC
-Niger (the),NE,NER
+Niger ,NE,NER
 Nigeria,NG,NGA
 Niue,NU,NIU
 Norfolk Island,NF,NFK
-Northern Mariana Islands (the),MP,MNP
+Northern Mariana Islands ,MP,MNP
 Norway,NO,NOR
 Oman,OM,OMN
 Pakistan,PK,PAK
@@ -171,7 +171,7 @@ Panama,PA,PAN
 Papua New Guinea,PG,PNG
 Paraguay,PY,PRY
 Peru,PE,PER
-Philippines (the),PH,PHL
+Philippines ,PH,PHL
 Pitcairn,PN,PCN
 Poland,PL,POL
 Portugal,PT,PRT
@@ -179,7 +179,7 @@ Puerto Rico,PR,PRI
 Qatar,QA,QAT
 Republic of North Macedonia,MK,MKD
 Romania,RO,ROU
-Russian Federation (the),RU,RUS
+Russian Federation ,RU,RUS
 Rwanda,RW,RWA
 Reunion,RE,REU
 Saint Bartholemy,BL,BLM
@@ -208,7 +208,7 @@ South Georgia and the South Sandwich Islands,GS,SGS
 South Sudan,SS,SSD
 Spain,ES,ESP
 Sri Lanka,LK,LKA
-Sudan (the),SD,SDN
+Sudan ,SD,SDN
 Suriname,SR,SUR
 Svalbard and Jan Mayen,SJ,SJM
 Sweden,SE,SWE
@@ -226,14 +226,14 @@ Trinidad and Tobago,TT,TTO
 Tunisia,TN,TUN
 Turkey,TR,TUR
 Turkmenistan,TM,TKM
-Turks and Caicos Islands (the),TC,TCA
+Turks and Caicos Islands ,TC,TCA
 Tuvalu,TV,TUV
 Uganda,UG,UGA
 Ukraine,UA,UKR
-United Arab Emirates (the),AE,ARE
-United Kingdom of Great Britain and Northern Ireland (the),UK,GBR
-United States Minor Outlying Islands (the),UM,UMI
-United States of America (the),US,USA
+United Arab Emirates ,AE,ARE
+United Kingdom of Great Britain and Northern Ireland ,UK,GBR
+United States Minor Outlying Islands ,UM,UMI
+United States of America ,US,USA
 Uruguay,UY,URY
 Uzbekistan,UZ,UZB
 Vanuatu,VU,VUT
@@ -248,5 +248,5 @@ Zambia,ZM,ZMB
 Zimbabwe,ZW,ZWE
 Aland Islands,AX,ALA
 Kosovo,XK,XK
-CASES ON AN INTERNATIONAL CONVEYANCE JAPAN,JPG11668,
-Northern Cyprus,NCY,
+CASES ON AN INTERNATIONAL CONVEYANCE JAPAN,JPG11668,JPG11668
+Northern Cyprus,NCY,NCY
