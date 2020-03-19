@@ -2218,7 +2218,7 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #4DC3FA;
+    background: #1F2739;
     color: #fff;
     padding: 10px 0;
 }
@@ -2399,6 +2399,8 @@ img{
     width: 3%;
     height: 3%;
 }
+
+
 
 .tooltip {
             position: absolute;

@@ -170,7 +170,7 @@ class casesODDS(Resource):
         from analysis import get_total_distribution_of_cases
         df1 = get_total_distribution_of_cases(df)
         # df1 = df1.sort_values(by=['odds'],ascending=True)
-        df1 = df1[0:df1.shape[0]-2]
+        df1 = df1[0:df1.shape[0]-1]
         mydict = dict(zip(df1['NewConfCases'],df1['odds']))
         return mydict
 
@@ -199,7 +199,7 @@ class casesCountryODDS(Resource):
         from analysis import get_total_distribution_of_cases_per_specific_country
         df1 = get_total_distribution_of_cases_per_specific_country(df,country)
         # df1 = df1.sort_values(by=['odds'],ascending=True)
-        df1 = df1[0:df1.shape[0]-2]
+        df1 = df1[0:df1.shape[0]-1]
         mydict = dict(zip(df1['NewConfCases'],df1['odds']))
         return (mydict)
 

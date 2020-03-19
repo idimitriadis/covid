@@ -186,38 +186,37 @@ var Script = function () {
       .addTo( map );}
 
       // GREEK MAP
-    var mappedGR = getResultFromEndpoint('/greek_data');
-    var markersGR = [];
-    for (let [key, value] of Object.entries(mappedGR)) {
-        markersGR.push({'City': key, 'Cases':value[0], 'Deaths':value[1],'lat':value[2],'lon':value[3]});
-    }
-    console.log(markersGR);
-    var mapGR = L.map( 'mapGR', {
-    center: [38.995368 , 21.987713],
-    minZoom: 2,
-    zoom: 7
-    });
+    // var mappedGR = getResultFromEndpoint('/greek_data');
+    // var markersGR = [];
+    // for (let [key, value] of Object.entries(mappedGR)) {
+    //     markersGR.push({'City': key, 'Cases':value[0], 'Deaths':value[1],'lat':value[2],'lon':value[3]});
+    // }
+    // var mapGR = L.map( 'mapGR', {
+    // center: [38.995368 , 21.987713],
+    // minZoom: 2,
+    // zoom: 7
+    // });
 
-    L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      subdomains: ['a', 'b', 'c']
-    }).addTo( mapGR );
+    // L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    //   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    //   subdomains: ['a', 'b', 'c']
+    // }).addTo( mapGR );
 
-    var myURL = jQuery( 'script[src$="morris-plain.js"]' ).attr( 'src' ).replace( 'morris-plain.js', '' );
+    // var myURL = jQuery( 'script[src$="morris-plain.js"]' ).attr( 'src' ).replace( 'morris-plain.js', '' );
 
-    var myIcon = L.icon({
-      iconUrl: myURL + '/covid.png',
-      iconRetinaUrl: myURL + '/covid.png',
-      iconSize: [29, 24],
-      iconAnchor: [9, 21],
-      popupAnchor: [0, -14]
-    });
+    // var myIcon = L.icon({
+    //   iconUrl: myURL + '/covid.png',
+    //   iconRetinaUrl: myURL + '/covid.png',
+    //   iconSize: [29, 24],
+    //   iconAnchor: [9, 21],
+    //   popupAnchor: [0, -14]
+    // });
 
-    for ( var i=0; i < markersGR.length; ++i )
-    {
-     L.marker( [markersGR[i].lat, markersGR[i].lon], {icon: myIcon} )
-      .bindPopup( "<strong> City:</strong>"+markersGR[i].City+"<br>"+"<strong>Deaths:</strong>"+markersGR[i].Deaths+"<br>"+"<strong>Cases:</strong>"+markersGR[i].Cases)
-      .addTo( mapGR );}
+    // for ( var i=0; i < markersGR.length; ++i )
+    // {
+    //  L.marker( [markersGR[i].lat, markersGR[i].lon], {icon: myIcon} )
+    //   .bindPopup( "<strong> City:</strong>"+markersGR[i].City+"<br>"+"<strong>Deaths:</strong>"+markersGR[i].Deaths+"<br>"+"<strong>Cases:</strong>"+markersGR[i].Cases)
+    //   .addTo( mapGR );}
 
 
 
