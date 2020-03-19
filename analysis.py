@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
 import numpy as np
 import requests
 import pickle
@@ -13,7 +13,7 @@ def get_ecdc_data():
     yesterday = date - timedelta(1) #μέρα ώρα χθες
     yesterday = str(yesterday) #μέρα χθες
     import datetime as dt
-    timeFilter = dt.time(9, 00, 00) #ώρα που ανεβάζουν τα data
+    timeFilter = dt.time(13, 00, 00) #ώρα που ανεβάζουν τα data
     print (timeFilter)
     if time<timeFilter:
         print ("...getting yesterday's results...")

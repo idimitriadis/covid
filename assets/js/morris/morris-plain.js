@@ -209,7 +209,13 @@ function compareCases() {
 
     var datas = [];
     for (let [key, value] of Object.entries(totalCasesDay1)) {
-        datas.push({'Day': key, 'Cases1': Math.log(value+1), 'Cases2': Math.log(totalCasesDay2[key]+1)});
+        if (key in totalCasesDay2){
+            datas.push({'Day': key, 'Cases1': Math.log(value+1), 'Cases2': Math.log(totalCasesDay2[key]+1)});
+        }
+        else {
+            datas.push({'Day': key, 'Cases1': Math.log(value+1), 'Cases2': Math.log(1)});
+        }
+
     }
 
     Morris.Line({
