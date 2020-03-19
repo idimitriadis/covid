@@ -15,15 +15,19 @@ def get_ecdc_data():
     import datetime as dt
     timeFilter = dt.time(10, 00, 00) #ώρα που ανεβάζουν τα data
     print (timeFilter)
+    filename = 'static/data/ecdcdata'
     if time<timeFilter:
         print ("...getting yesterday's results...")
         try:
             url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+yesterday+'.xls'
+            urllib.request.urlretrieve(url, filename)
+            print ('downloaded yesterdays xls')
         except:
             url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+yesterday+'.xlsx'
+            urllib.request.urlretrieve(url, filename)
+            print ('downloaded yesterdays xlsx')
     else:
         print ("...getting today's results...")
-    filename = 'data/ecdcdata'
     try:
         url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+str(date)+'.xls'
         urllib.request.urlretrieve(url, filename)
@@ -35,7 +39,7 @@ def get_ecdc_data():
             print ('no data yet')
 
 def map_countries():
-    mapping = pickle.load(open('mapping','rb'))
+    mapping = pickle.load(open('static/data/mapping','rb'))
     countries =[]
     lats=[]
     lons=[]
@@ -50,14 +54,14 @@ def map_countries():
     return (df)
 
 def merge_data():
-    iso = pd.read_csv('data/iso.csv',names=['Country','iso2','iso3'])
+    iso = pd.read_csv('static/data/iso.csv',names=['Country','iso2','iso3'])
     iso2dict = dict(zip(iso.iso2, iso.Country))
     iso3dict = dict(zip(iso.iso3, iso.Country))
     locs = map_countries()
-    oldData = pd.read_excel('data/oldData.xls')
+    oldData = pd.read_excel('static/data/oldData.xls')
     eudict = dict(zip(oldData.GeoId,oldData.EU))
     get_ecdc_data()
-    covid = pd.read_excel('data/ecdcdata',converters={'GeoId':str})
+    covid = pd.read_excel('static/data/ecdcdata',converters={'GeoId':str})
     countryExp = list()
     for i,r in covid.iterrows():
         try:
@@ -71,14 +75,14 @@ def merge_data():
     covid = covid.rename(columns={"Cases":"NewConfCases","Deaths":"NewDeaths"})
     covid['EU'] = covid['GeoId'].map(eudict)
 
-    whr2019 = pd.read_csv('data/world-happiness-report-2019.csv')
+    whr2019 = pd.read_csv('static/data/world-happiness-report-2019.csv')
     whr2019['CountryExp'] = whr2019['iso2'].map(iso2dict)
     whr2019 = whr2019.rename(columns={"Log of GDP\nper capita":"Log of GDP per capita","Healthy life\nexpectancy":"Healthy life expectancy"})
 
     df1 = pd.merge(covid,whr2019 , on="CountryExp",how='left')
     df = pd.merge(df1,locs,on="CountryExp",how='left')
 
-    human_freedom = pd.read_csv('data/human_freedom.csv')
+    human_freedom = pd.read_csv('static/data/human_freedom.csv')
     human_freedom['CountryExp'] = human_freedom['ISO_code'].map(iso3dict)
     human_freedom = human_freedom.filter(['CountryExp', 'hf_score','ISO_code'])
 
@@ -358,7 +362,7 @@ def map_greek_data():
     import pandas as pd
     from geopy.geocoders import Nominatim
     import pickle
-    grcases = pd.read_csv('data/Greece.csv')
+    grcases = pd.read_csv('static/data/Greece.csv')
     locs = grcases['cities'].tolist()
     geolocator = Nominatim(user_agent="COVID")
     mapping={}
@@ -372,8 +376,8 @@ def map_greek_data():
     maps = pickle.dump(mapping,open('mappingGR','wb'))
 
 def get_greek_data():
-    mapping = pickle.load(open('mappingGR','rb'))
-    df = pd.read_csv('data/Greece.csv')
+    mapping = pickle.load(open('static/data/mappingGR','rb'))
+    df = pd.read_csv('static/data/Greece.csv')
     latdict={}
     londict={}
     for k,v in mapping.items():
