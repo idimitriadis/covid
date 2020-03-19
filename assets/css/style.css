@@ -2438,6 +2438,21 @@ p {
     direction: ltr;
 }
 
+.card-body {
+    font-weight: bold;
+    font-size: 3em;
+}
+
+.label-info {
+    background-color: #4DC3FA;
+    padding: 5px;
+    font-weight: bold;
+}
+.label-info[href]:hover,
+.label-info[href]:focus {
+    background-color: #31b0d5;
+}
+
 /* FOR MORRIS GRAPHS */
 
 circle {

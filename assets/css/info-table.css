@@ -14,7 +14,8 @@
 
 #info-table h1 {
     font-weight: bold;
-    line-height: 1em;
+    font-size: 1.5em;
+    line-height: 1.5em;
     text-align: center;
     color: #4DC3FA;
 }
@@ -25,12 +26,6 @@
 
 .yellow {
     color: #FFF842;
-}
-
-.table-container th h1 {
-    font-weight: bold;
-    font-size: 1em;
-    color: #185875;
 }
 
 .table-container td {
