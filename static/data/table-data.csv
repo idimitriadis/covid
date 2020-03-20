@@ -18,7 +18,7 @@ Belgium,1795,21
 Benin,2,0
 Bermuda,2,0
 Bhutan,1,0
-Bolivia (Plurinational State of),15,0
+Bolivia,15,0
 Bosnia and Herzegovina,44,0
 Brazil,621,6
 Brunei Darussalam,73,0
@@ -35,16 +35,16 @@ Chile,342,0
 China,81337,3254
 Colombia,128,0
 Congo ,3,0
-Congo (the Democratic Republic of the),28,0
 Costa Rica,87,1
 Cote d'Ivoire,9,0
 Croatia,104,1
 Cuba,16,1
 Cyprus,58,0
 Czechia,694,0
+Democratic Republic of Congo,28,0
 Denmark,1151,6
 Djibouti,1,0
-Dominican Republic ,21,0
+Dominican Republic,21,0
 Ecuador,199,3
 Egypt,210,6
 El Salvador,1,0
@@ -71,13 +71,12 @@ Guernsey,1,0
 Guinea,1,0
 Guyana,5,1
 Haiti,2,0
-Holy See ,13,0
 Honduras,24,0
 Hungary,85,1
 Iceland,330,1
 India,191,4
 Indonesia,227,19
-Iran (Islamic Republic of),18407,1284
+Iran,18407,1284
 Iraq,177,12
 Ireland,557,3
 Israel,677,0
@@ -88,7 +87,6 @@ Jersey,5,0
 Jordan,56,0
 Kazakhstan,49,0
 Kenya,7,0
-Korea (the Republic of),8652,100
 Kosovo,21,0
 Kuwait,148,0
 Kyrgyzstan,6,0
@@ -104,7 +102,7 @@ Malta,53,0
 Mauritania,2,0
 Mauritius,3,0
 Mexico,164,0
-Moldova (the Republic of),49,1
+Moldova,49,1
 Monaco,11,0
 Mongolia,5,0
 Montenegro,13,0
@@ -116,11 +114,12 @@ Netherlands ,2460,76
 New Zealand,39,0
 Nicaragua,1,0
 Nigeria,8,0
+North Macedonia,48,0
 Norway,1552,6
 Oman,39,0
 Other,9,0
 Pakistan,478,2
-"Palestine, State of",47,0
+Palestinian Territories,47,0
 Panama,137,1
 Paraguay,13,0
 Peru,234,2
@@ -128,7 +127,6 @@ Philippines ,230,18
 Poland,355,5
 Portugal,785,3
 Qatar,460,0
-Republic of North Macedonia,48,0
 Romania,277,0
 Russian Federation ,199,0
 Rwanda,11,0
@@ -144,14 +142,15 @@ Slovakia,123,0
 Slovenia,319,1
 Somalia,1,0
 South Africa,150,0
+South Korea,8652,100
 Spain,17147,767
 Sri Lanka,53,0
 Sudan ,2,1
 Suriname,1,0
 Sweden,1423,10
 Switzerland,3888,33
-Taiwan (Province of China),108,1
-"Tanzania, United Republic of",3,0
+Taiwan,108,1
+Tanzania,3,0
 Thailand,212,1
 Togo,1,0
 Trinidad and Tobago,9,0
@@ -159,10 +158,11 @@ Tunisia,39,0
 Turkey,359,4
 Ukraine,26,2
 United Arab Emirates ,140,0
-United Kingdom of Great Britain and Northern Ireland ,3277,144
-United States of America ,14250,150
+United Kingdom of Great Britain and Northern Ireland,3277,144
+United States of America,14250,150
 Uruguay,94,0
 Uzbekistan,23,0
-Venezuela (Bolivarian Republic of),33,0
+Vatican,13,0
+Venezuela,33,0
 Viet Nam,85,0
 Zambia,2,0
