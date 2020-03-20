@@ -131,6 +131,24 @@ var Script = function () {
         barColors: ['#33FF64','#FF336E' ]
     });
 
+    var chinaeu = getResultFromEndpoint('/china_vs_EU');
+    // console.log(humanfreeCountry);
+    var chinaeudata = [];
+    for (let [key, value] of Object.entries(chinaeu)) {
+        chinaeudata.push({'Date': key, 'EU Cases':value[0], 'CN Cases': value[1]});
+    }
+
+    Morris.Bar({
+        element: 'china-eu',
+        data: chinaeudata,
+        xkey: 'Date',
+        ykeys: ['EU Cases', 'CN Cases'],
+        labels: ['EU Cases', 'CN Cases'],
+        // parseTime: false,
+        xLabelAngle: 90,
+        gridTextSize: 8,
+        barColors: ['#4733FF','#FF3352' ]
+    });
 
     var humanfreeCountry = getResultFromEndpoint('/human_freedom_per_country');
     // console.log(humanfreeCountry);

@@ -390,6 +390,10 @@ def get_greek_data():
     df['lon']=df['cities'].map(londict)
     return (df)
 
+def get_total_cases_per_countryEU_per_day(df):
+    df1 = df.groupby(['DateRep','EU'])['NewConfCases'].sum().reset_index()
+    return df1
+
 # print (get_greek_data())
 # from collections import Counter
 

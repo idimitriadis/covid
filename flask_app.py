@@ -231,6 +231,25 @@ class human_freedom_per_country(Resource):
 
 api.add_resource(human_freedom_per_country,'/human_freedom_per_country')
 
+
+class china_vs_EU(Resource):
+    def get(self):
+        from analysis import get_total_cases_per_country_per_day,get_total_cases_per_countryEU_per_day
+        newdf = df
+        df1 = get_total_cases_per_country_per_day(newdf)
+        df2 = get_total_cases_per_countryEU_per_day(newdf)
+        dfCN=df1[df1['CountryExp']=='China']
+        dfCN=dfCN.rename(columns={"NewConfCases": "NewConfCasesCN"})
+        dfEU=df2[df2['EU']=='EU']
+        compare = pd.merge(dfCN,dfEU,on='DateRep')
+        compare = compare[20:]
+        compare['DateRep']= compare['DateRep'].astype(str)
+        mydict = dict(zip(compare['DateRep'],zip(compare['NewConfCases'],compare['NewConfCasesCN'])))
+        return (mydict)
+
+api.add_resource(china_vs_EU,'/china_vs_EU')
+
+
 class capita_and_cases_per_country(Resource):
     def get(self):
         from analysis import get_total_cases_per_country_cap
@@ -352,7 +371,6 @@ class greek_data(Resource):
         return jsonify(mydict)
 
 api.add_resource(greek_data,'/greek_data')
-
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=5000)
