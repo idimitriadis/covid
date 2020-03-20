@@ -9,7 +9,6 @@
     color: #ecf0f4;
     text-align: center;
     background-color: #1F2739;
-    width: auto;
 }
 
 #info-table h1 {
@@ -38,9 +37,6 @@
 
 .table-container {
     text-align: left;
-    overflow: hidden;
-    width: 80%;
-    margin: 0 auto;
     display: table;
     padding: 0 0 8em 0;
 }
@@ -115,3 +111,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #4da3fa;
 }
+
+/*SCROLLABLE*/
+
+.scroll-it {
+    direction: rtl;
+    overflow: auto;
+    height: 500px;
+}
+
+.scroll-it table {
+    direction: ltr;
+}
+
+/*END SCROLLABLE*/

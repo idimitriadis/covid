@@ -68,7 +68,10 @@ def merge_data():
             if len(r['GeoId'])>2:
                 countryExp.append(iso3dict[r['GeoId']])
             else:
-                countryExp.append(iso2dict[r['GeoId']])
+                try:
+                    countryExp.append(iso2dict[r['GeoId']])
+                except KeyError:
+                    countryExp.append('Other')
         except TypeError:
             countryExp.append('Namibia')
     covid['CountryExp'] = countryExp
