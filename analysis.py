@@ -28,15 +28,15 @@ def get_ecdc_data():
             print ('downloaded yesterdays xlsx')
     else:
         print ("...getting today's results...")
-    try:
-        url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+str(date)+'.xls'
-        urllib.request.urlretrieve(url, filename)
-    except:
         try:
-            url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+str(date)+'.xlsx'
+            url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+str(date)+'.xls'
             urllib.request.urlretrieve(url, filename)
         except:
-            print ('no data yet')
+            try:
+                url = 'https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-geographic-disbtribution-worldwide-'+str(date)+'.xlsx'
+                urllib.request.urlretrieve(url, filename)
+            except:
+                print ('no data yet')
 
 def map_countries():
     mapping = pickle.load(open('static/data/mapping','rb'))
