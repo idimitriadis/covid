@@ -410,3 +410,4 @@ def get_total_cases_per_countryEU_per_day(df):
 # df1 = get_total_cases_per_country_hf(df)
 # # print (df1)
 # print (df1[df1['CountryExp']=='Greece'])
+
