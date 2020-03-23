@@ -3,6 +3,7 @@ from flask_restful import Resource, Api
 import analysis
 import pandas as pd
 from flask_cors import CORS
+import pickle
 
 
 # df = analysis.merge_data()
@@ -19,7 +20,7 @@ CORS(app)
 @app.route('/')
 def home():
     global df
-    df = analysis.merge_data()
+    df = pickle.load(open('static/data/df.pickle', 'rb'))
     df1 = df.groupby('CountryExp')['NewConfCases'].sum().reset_index()
     df2 = df.groupby('CountryExp')['NewDeaths'].sum().reset_index()
     final_df = pd.merge(df1, df2, on='CountryExp')
