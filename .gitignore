@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 .idea/
+
+# temporary data, the file is created every time the docker image runs
+static/data/df.pickle
